@@ -1,16 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://xxlobdsarpa7"]
+[gd_scene load_steps=17 format=3 uid="uid://xxlobdsarpa7"]
 
 [ext_resource type="Material" uid="uid://cufp2sitxk1u5" path="res://Matirials/wall.tres" id="1_lwo50"]
 [ext_resource type="PackedScene" uid="uid://difdvuqvvajdu" path="res://Scenes/player.tscn" id="2_3v0im"]
+[ext_resource type="Texture2D" uid="uid://dicbj2n5lsm5s" path="res://AllSky_Night_MoonBurst Equirect.png" id="2_54d86"]
 [ext_resource type="Material" uid="uid://ogl2dya7fgsv" path="res://Matirials/wood.tres" id="3_7j7cy"]
+[ext_resource type="PackedScene" uid="uid://duenfutjpu0we" path="res://Scenes/didplay_panel.tscn" id="5_nj0yw"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtjk8"]
-sky_top_color = Color(0.309804, 0.560784, 0.729412, 1)
-sky_horizon_color = Color(0.52875, 0.69113, 0.694753, 1)
-ground_horizon_color = Color(0.646078, 0.655975, 0.670505, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fqhax"]
+panorama = ExtResource("2_54d86")
 
 [sub_resource type="Sky" id="Sky_2ycnc"]
-sky_material = SubResource("ProceduralSkyMaterial_jtjk8")
+sky_material = SubResource("PanoramaSkyMaterial_fqhax")
 
 [sub_resource type="Environment" id="Environment_cjp5x"]
 background_mode = 2
@@ -29,13 +29,30 @@ albedo_color = Color(0.192157, 0.207843, 0.247059, 1)
 metallic = 0.55
 roughness = 0.13
 
+[sub_resource type="QuadMesh" id="QuadMesh_f6buk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oce1x"]
+viewport_path = NodePath("Node3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjcuj"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_oce1x")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_00kc8"]
+viewport_path = NodePath("Didplay panel/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5ntp"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_00kc8")
+
 [node name="World" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_3v0im")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05067, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 17, -3)
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.200486, 0.758775, 0.619731, -0.458045, 0.486581, -0.743931, 0, 17, -3)
+light_color = Color(0.564706, 0.729412, 0.92549, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -43,38 +60,58 @@ environment = SubResource("Environment_cjp5x")
 
 [node name="House" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="House"]
+[node name="Floor" type="CSGBox3D" parent="House"]
 material_override = SubResource("StandardMaterial3D_yhlga")
 use_collision = true
-size = Vector3(8, 0.002, 8)
+size = Vector3(16, 0.002, 16)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="House"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, 4)
+[node name="wall Z+" type="CSGBox3D" parent="House"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, 8)
 material_override = ExtResource("1_lwo50")
-size = Vector3(0.25, 4, 8)
+size = Vector3(0.25, 4, 16)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="House"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, -4)
+[node name="wall Z-" type="CSGBox3D" parent="House"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, -8)
 material_override = ExtResource("1_lwo50")
-size = Vector3(0.244578, 4, 8)
+size = Vector3(0.245, 4, 16)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="House/CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00237417, 0, 1.03782e-10)
+[node name="CSGBox3D3" type="CSGBox3D" parent="House/wall Z-"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00237417, 0.692037, 1.03782e-10)
 operation = 2
 size = Vector3(0.26, 1, 1)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="House"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
-material_override = ExtResource("1_lwo50")
-size = Vector3(0.25, 4, 8)
+[node name="CSGBox3D4" type="CSGBox3D" parent="House/wall Z-"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00237417, -0.354554, 1.03782e-10)
+operation = 2
+size = Vector3(0.26, 1, 1)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="House"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="House/wall Z-"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00474834, 0.683161, 1.15109)
+operation = 2
+size = Vector3(0.26, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="House/wall Z-"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00237417, -0.387902, 1.18464)
+operation = 2
+size = Vector3(0.26, 1, 1)
+
+[node name="wall X-" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 0)
 material_override = ExtResource("1_lwo50")
-size = Vector3(0.25, 4, 8)
+size = Vector3(0.25, 4, 16)
+
+[node name="wall X+" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 0)
+material_override = ExtResource("1_lwo50")
+size = Vector3(0.25, 4, 16)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.01022, 0)
+size = Vector3(16, 0.023, 16)
+material = ExtResource("1_lwo50")
 
 [node name="Desk" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145632, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145632, -0.347194, -3.78935)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Desk"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55861, 1.26159, -3.25362)
@@ -109,3 +146,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.053239, 0.400343)
 operation = 2
 size = Vector3(0.6, 0.6, 0.0702815)
 material = SubResource("StandardMaterial3D_3v6ov")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.535889, 2.50903, 0.29289)
+omni_range = 13.4708
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="Node3D"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41617, 1.16568, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13179, 1.91951, -3.72434)
+mesh = SubResource("QuadMesh_f6buk")
+surface_material_override/0 = SubResource("StandardMaterial3D_fjcuj")
+
+[node name="Didplay panel" parent="." instance=ExtResource("5_nj0yw")]
+
+[node name="MeshInstance3D" parent="Didplay panel" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.90564, 1.41336, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_a5ntp")
+
+[editable path="Player"]
+[editable path="Didplay panel"]

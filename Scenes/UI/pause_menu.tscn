@@ -15,9 +15,9 @@ pressed = true
 [sub_resource type="Shortcut" id="Shortcut_fayp4"]
 events = [SubResource("InputEventAction_lk41g")]
 
-[sub_resource type="Animation" id="Animation_38ort"]
-resource_name = "Unpause"
-length = 0.001
+[sub_resource type="Animation" id="Animation_bllww"]
+resource_name = "Pause"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -25,10 +25,10 @@ tracks/0/path = NodePath(".:material:shader_parameter/blur")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 2.5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -37,10 +37,10 @@ tracks/1/path = NodePath(".:material:shader_parameter/brightness")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [1.0]
+"values": [1.0, 0.9]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -49,10 +49,10 @@ tracks/2/path = NodePath("CenterContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -64,7 +64,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_dqv6o"]
@@ -118,9 +118,9 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_bllww"]
-resource_name = "Pause"
-length = 0.3
+[sub_resource type="Animation" id="Animation_38ort"]
+resource_name = "Unpause"
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -128,10 +128,10 @@ tracks/0/path = NodePath(".:material:shader_parameter/blur")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, 2.5]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -140,10 +140,10 @@ tracks/1/path = NodePath(".:material:shader_parameter/brightness")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0, 0.9]
+"values": [1.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -152,10 +152,10 @@ tracks/2/path = NodePath("CenterContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -167,7 +167,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g4xcs"]

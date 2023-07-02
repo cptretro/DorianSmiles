@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://duenfutjpu0we"]
+
+[ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="1_5y823"]
+[ext_resource type="Script" path="res://Scenes/didplay_panel.gd" id="1_st5qt"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="2_e71s6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ng5db"]
+shader = ExtResource("1_5y823")
+shader_parameter/blur = 2.5
+shader_parameter/brightness = 0.9
+
+[sub_resource type="InputEventAction" id="InputEventAction_lk41g"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_fayp4"]
+events = [SubResource("InputEventAction_lk41g")]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pcv0s"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v7i8n"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xbth"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_v7i8n")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frrln"]
+size = Vector3(1, 1, 0.001)
+
+[node name="Didplay panel" type="Node3D"]
+script = ExtResource("1_st5qt")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="PauseMenu" type="ColorRect" parent="SubViewport"]
+process_mode = 3
+material = SubResource("ShaderMaterial_ng5db")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_e71s6")
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewport/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/PauseMenu/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/PauseMenu/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/PauseMenu/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SubViewport/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="SubViewport/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="SubViewport/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+shortcut = SubResource("Shortcut_fayp4")
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="SubViewport/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.768102)
+mesh = SubResource("QuadMesh_pcv0s")
+surface_material_override/0 = SubResource("StandardMaterial3D_7xbth")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_frrln")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.26913)
+size = Vector3(1.04701, 1.03857, 1)
