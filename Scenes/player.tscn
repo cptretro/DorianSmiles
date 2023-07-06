@@ -22,8 +22,11 @@ shape = SubResource("ConvexPolygonShape3D_3iyw8")
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56822, 0)
 
+[node name="hand" type="Marker3D" parent="Head/Camera3D"]
+transform = Transform3D(8.66435, 0, 0, 0, 8.33372, 0, 0, 0, 9.48031, 0, -0.153741, -1.35844)
+
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.17067, -0.321955)
-debug_shape_thickness = 5
+transform = Transform3D(0.00858043, -0.983217, 0.182236, 0.999962, 0.00872656, 0, -0.00159029, 0.182229, 0.983255, 0, 0, 0)
+target_position = Vector3(0, -1, -5)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_6wog5")]

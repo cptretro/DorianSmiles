@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://xxlobdsarpa7"]
+[gd_scene load_steps=16 format=3 uid="uid://xxlobdsarpa7"]
 
 [ext_resource type="Material" uid="uid://cufp2sitxk1u5" path="res://Matirials/wall.tres" id="1_lwo50"]
 [ext_resource type="PackedScene" uid="uid://difdvuqvvajdu" path="res://Scenes/player.tscn" id="2_3v0im"]
 [ext_resource type="Texture2D" uid="uid://dicbj2n5lsm5s" path="res://AllSky_Night_MoonBurst Equirect.png" id="2_54d86"]
 [ext_resource type="Material" uid="uid://ogl2dya7fgsv" path="res://Matirials/wood.tres" id="3_7j7cy"]
-[ext_resource type="PackedScene" uid="uid://duenfutjpu0we" path="res://Scenes/didplay_panel.tscn" id="5_nj0yw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fqhax"]
 panorama = ExtResource("2_54d86")
@@ -38,12 +37,9 @@ viewport_path = NodePath("Node3D/SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_oce1x")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_00kc8"]
-viewport_path = NodePath("Didplay panel/SubViewport")
+[sub_resource type="BoxMesh" id="BoxMesh_t755u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5ntp"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_00kc8")
+[sub_resource type="BoxShape3D" id="BoxShape3D_umpi6"]
 
 [node name="World" type="Node3D"]
 
@@ -165,11 +161,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13179, 1.91951, -3.72434)
 mesh = SubResource("QuadMesh_f6buk")
 surface_material_override/0 = SubResource("StandardMaterial3D_fjcuj")
 
-[node name="Didplay panel" parent="." instance=ExtResource("5_nj0yw")]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87082, 1.74865, 0)
 
-[node name="MeshInstance3D" parent="Didplay panel" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.90564, 1.41336, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_a5ntp")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_t755u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_umpi6")
 
 [editable path="Player"]
-[editable path="Didplay panel"]

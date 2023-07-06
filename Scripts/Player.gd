@@ -5,11 +5,21 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 
+@onready var head = $Head
+@onready var camera = $Head/Camera3D
+@onready var interaction = $Head/Camera3D/RayCast3D
+@onready var hand = $Head/Camera3D/hand
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var head = $Head
-@onready var camera = $Head/Camera3D
+var picked_object
+var pull_power = 4
+
+func pick_object():
+	var colider = interaction.get_collider()
+	if colider != null and colider is RigidBody3D:
+		print("colided")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -20,8 +30,12 @@ func _input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
+		
+	if event.is_action_pressed("Interact"):
+		pick_object()
 
 
 func _physics_process(delta):
