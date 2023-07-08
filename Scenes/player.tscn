@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://difdvuqvvajdu"]
+[gd_scene load_steps=7 format=3 uid="uid://difdvuqvvajdu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p4l7p"]
 [ext_resource type="PackedScene" uid="uid://dirs1nt7yvg8m" path="res://assets/sniper.tscn" id="2_0x835"]
 [ext_resource type="PackedScene" uid="uid://qve4flasnpjf" path="res://Scenes/UI/pause_menu.tscn" id="2_6wog5"]
+[ext_resource type="AudioStream" uid="uid://8xwfbn4uvymg" path="res://Audio/step_grass.mp3" id="4_5rqpm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntdrg"]
 
@@ -41,3 +42,8 @@ spot_angle_attenuation = 4.75682
 transform = Transform3D(0.497149, -0.0264033, 0.0463204, 0.0262894, 0.499302, 0.00244944, -0.0463851, -2.09548e-09, 0.497844, 0.36963, -0.314434, -1.3544)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_6wog5")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+stream = ExtResource("4_5rqpm")
+volume_db = 10.0
