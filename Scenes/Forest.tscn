@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://uqsu5gr78rjw" path="res://assets/ground_n.png" id="3_mw05t"]
 [ext_resource type="MeshLibrary" uid="uid://domiy3dhsnysh" path="res://assets/tree_mesh.tres" id="4_wubgh"]
 [ext_resource type="MeshLibrary" uid="uid://cd4b3bhpitk5l" path="res://assets/foliage_mesh.tres" id="5_vgsq7"]
-[ext_resource type="PackedScene" uid="uid://8vq2h0blone5" path="res://campfire.tscn" id="6_3g8sh"]
+[ext_resource type="PackedScene" uid="uid://8vq2h0blone5" path="res://assets/campfire.tscn" id="6_3g8sh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a3ll7"]
 panorama = ExtResource("1_sfwho")

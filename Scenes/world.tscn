@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cufp2sitxk1u5" path="res://Matirials/wall.tres" id="1_lwo50"]
 [ext_resource type="PackedScene" uid="uid://difdvuqvvajdu" path="res://Scenes/player.tscn" id="2_3v0im"]
-[ext_resource type="Texture2D" uid="uid://dicbj2n5lsm5s" path="res://AllSky_Night_MoonBurst Equirect.png" id="2_54d86"]
+[ext_resource type="Texture2D" uid="uid://dicbj2n5lsm5s" path="res://assets/AllSky_Night_MoonBurst Equirect.png" id="2_54d86"]
 [ext_resource type="Material" uid="uid://ogl2dya7fgsv" path="res://Matirials/wood.tres" id="3_7j7cy"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fqhax"]

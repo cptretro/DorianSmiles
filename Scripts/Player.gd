@@ -15,6 +15,7 @@ var instance
 @onready var hand = $Head/Camera3D/hand
 @onready var gun_anim = $Head/Camera3D/Sniper/AnimationPlayer
 @onready var gun_barrel = $Head/Camera3D/Sniper/RayCast3D
+@onready var gun_shot = $Head/Camera3D/Sniper/GunShot
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -68,6 +69,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Shoot"):
 		if !gun_anim.is_playing():
 			gun_anim.play("shoot")
+			gun_shot.play()
 			
 			# instantiate bullet based on raycast pos on gun barrel
 			instance = bullet.instantiate()

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brbfysvdfhbqq"
-path.s3tc="res://.godot/imported/Cold Night Equirect.png-73ada4c9254df2562d7d2568f3b46d32.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cold Night Equirect.png-cffaaf2a16fb0608c39a43c3d9a086e9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Cold Night Equirect.png"
-dest_files=["res://.godot/imported/Cold Night Equirect.png-73ada4c9254df2562d7d2568f3b46d32.s3tc.ctex"]
+source_file="res://assets/Cold Night Equirect.png"
+dest_files=["res://.godot/imported/Cold Night Equirect.png-cffaaf2a16fb0608c39a43c3d9a086e9.s3tc.ctex"]
 
 [params]
 

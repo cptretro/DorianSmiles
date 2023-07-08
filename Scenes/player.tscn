@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://difdvuqvvajdu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p4l7p"]
-[ext_resource type="PackedScene" uid="uid://dirs1nt7yvg8m" path="res://sniper.tscn" id="2_0x835"]
+[ext_resource type="PackedScene" uid="uid://dirs1nt7yvg8m" path="res://assets/sniper.tscn" id="2_0x835"]
 [ext_resource type="PackedScene" uid="uid://qve4flasnpjf" path="res://Scenes/UI/pause_menu.tscn" id="2_6wog5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntdrg"]
