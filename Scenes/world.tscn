@@ -8,12 +8,12 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fqhax"]
 panorama = ExtResource("2_54d86")
 
-[sub_resource type="Sky" id="Sky_2ycnc"]
+[sub_resource type="Sky" id="Sky_rklum"]
 sky_material = SubResource("PanoramaSkyMaterial_fqhax")
 
 [sub_resource type="Environment" id="Environment_cjp5x"]
 background_mode = 2
-sky = SubResource("Sky_2ycnc")
+sky = SubResource("Sky_rklum")
 tonemap_mode = 2
 glow_enabled = true
 
