@@ -67,12 +67,13 @@ func _physics_process(delta):
 		SPEED = WAlK_SPEED
 
 	
-	
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+
+#press "shift" for testing of Respawn window
 	if Input.is_action_just_pressed("sprint"):
 		get_tree().change_scene_to_file("res://Scripts/respawn_menu.tscn")
 		
