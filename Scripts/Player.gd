@@ -18,9 +18,13 @@ var t_bob = 0.0
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
 
-#health
-var health = 100
+#hit
 
+
+
+#health
+const max_health = 100
+var health = max_health
 
 
 
@@ -48,6 +52,9 @@ func pick_object():
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	set_health_label()
+	$HUD/healthbar.max_value = max_health
+	set_health_bar()
 	
 	# simulate mouse click to get rid of button
 	call_deferred("right_click")
@@ -57,6 +64,11 @@ func right_click():
 	debug_right_click.set_button_index(MOUSE_BUTTON_RIGHT)
 	debug_right_click.set_pressed(true)
 	Input.parse_input_event(debug_right_click)
+	
+
+	
+	
+	
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -71,6 +83,10 @@ func _input(event):
 		pick_object()
 
 func _physics_process(delta):
+	if Input.is_action_pressed("hit"):
+		damage()
+		print("damage is: ", health)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -81,7 +97,6 @@ func _physics_process(delta):
 	else:
 		SPEED = WAlK_SPEED
 
-	
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -146,13 +161,17 @@ func _headbob(time) -> Vector3:
 	return pos
 	
 
-func _on_regin_timer_timeout():
-	if health < 100:
-		health = health + 20
-		if health > 100:
-			health = 100
-	if health <= 0:
-		health = 0
-		
 
+func set_health_label():
+	$HUD/helathlabel.text = "Health: %s" % health
 	
+func set_health_bar():
+	$HUD/healthbar.value = health
+	
+
+func damage(): 
+	health -= 10
+	if health < 0:
+		health = 0
+	set_health_label()
+	set_health_bar()
