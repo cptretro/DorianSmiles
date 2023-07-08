@@ -31,11 +31,16 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Main Menu")
 theme_override_font_sizes/font_size = 50
 text = "Respawn"
 
 [node name="Main Menu" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Respawn")
 theme_override_font_sizes/font_size = 50
 text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

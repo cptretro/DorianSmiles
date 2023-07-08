@@ -1,14 +1,14 @@
 extends Control
 
 
-
-# respawn button
-func _on_Respawn_pressed():
-	get_tree().reload_current_scene()
-	
+func _ready():
+	$VBoxContainer/Respawn.grab_focus()
 
 
-# main menu button
-func _on_Main_Menu_pressed():
+#repawn button
+func _on_respawn_pressed():
+	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+
+#main menu button
+func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
-	

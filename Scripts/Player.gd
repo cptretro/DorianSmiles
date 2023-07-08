@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var SPEED
-const WAlK_SPEED = 5.0
-const SPRINT_SPEED = 8.0
+const WAlK_SPEED = 4.0
+const SPRINT_SPEED = 6.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 
@@ -14,6 +14,9 @@ var t_bob = 0.0
 #FOV variables
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
+
+#health
+var health = 100
 
 
 
@@ -63,9 +66,16 @@ func _physics_process(delta):
 	else:
 		SPEED = WAlK_SPEED
 
+	
+	
+
 	# Handle Jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	if Input.is_action_just_pressed("sprint"):
+		get_tree().change_scene_to_file("res://Scripts/respawn_menu.tscn")
+		
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -101,4 +111,22 @@ func _headbob(time) -> Vector3:
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 	
+		
 
+func _on_regin_timer_timeout():
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0
+		
+		
+
+		
+	
+		
+		
+		
+		
+	
