@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dycccerhruj0k"]
+
+[ext_resource type="Script" path="res://Scenes/healthbar.gd" id="1_ybws8"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1.0
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.584314, 0.882353, 0.0509804, 1)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 604.0
+offset_right = 644.0
+offset_bottom = 634.0
+show_percentage = false
+script = ExtResource("1_ybws8")
