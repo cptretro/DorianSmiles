@@ -2,8 +2,9 @@ extends Control
 
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$VBoxContainer/Respawn.grab_focus()
-
+	
 
 #repawn button
 func _on_respawn_pressed():
