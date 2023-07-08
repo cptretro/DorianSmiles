@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://difdvuqvvajdu"]
+[gd_scene load_steps=10 format=3 uid="uid://difdvuqvvajdu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p4l7p"]
 [ext_resource type="PackedScene" uid="uid://dirs1nt7yvg8m" path="res://assets/sniper.tscn" id="2_0x835"]
 [ext_resource type="PackedScene" uid="uid://qve4flasnpjf" path="res://Scenes/UI/pause_menu.tscn" id="2_6wog5"]
+[ext_resource type="Script" path="res://flashlight_sway.gd" id="3_2wlg1"]
+[ext_resource type="Script" path="res://assets/object_sway.gd" id="3_8fr1q"]
 [ext_resource type="PackedScene" uid="uid://cyvk7m4k53ej2" path="res://old_flashlight.tscn" id="3_xjd3c"]
 [ext_resource type="AudioStream" uid="uid://8xwfbn4uvymg" path="res://Audio/step_grass.mp3" id="4_5rqpm"]
 
@@ -33,11 +35,9 @@ transform = Transform3D(8.66435, 0, 0, 0, 8.33372, 0, 0, 0, 9.48031, 0, -0.15374
 transform = Transform3D(0.00858043, -0.983217, 0.182236, 0.999962, 0.00872656, 0, -0.00159029, 0.182229, 0.983255, 0, 0, 0)
 target_position = Vector3(0, -1, -5)
 
-[node name="Sniper" parent="Head/Camera3D" instance=ExtResource("2_0x835")]
-transform = Transform3D(0.495315, 0.0502695, 0.0462129, -0.0502948, 0.497459, -0.00206106, -0.0461853, -0.00260679, 0.497856, 0.36963, -0.314434, -1.3544)
-
 [node name="old_flashlight" parent="Head/Camera3D" instance=ExtResource("3_xjd3c")]
 transform = Transform3D(2.99186, -0.220811, -9.65196e-09, -1.29336e-15, -1.31134e-07, 3, -0.220811, -2.99186, -1.30778e-07, -0.6138, -0.579181, -0.80543)
+script = ExtResource("3_2wlg1")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D/old_flashlight"]
 transform = Transform3D(0.333333, 0, 0, 0, -1.45705e-08, -0.333333, 0, 0.333333, -1.45705e-08, -0.000689805, 0.0889583, -0.000442863)
@@ -51,6 +51,10 @@ spot_angle_attenuation = 4.75682
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172325, 1.37207, -0.698694)
 light_color = Color(1, 0.992157, 0.733333, 1)
 light_energy = 0.07
+
+[node name="Sniper" parent="Head/Camera3D" instance=ExtResource("2_0x835")]
+transform = Transform3D(0.495315, 0.0502695, 0.0462129, -0.0502948, 0.497459, -0.00206106, -0.0461853, -0.00260679, 0.497856, 0.36963, -0.314434, -1.3544)
+script = ExtResource("3_8fr1q")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_6wog5")]
 

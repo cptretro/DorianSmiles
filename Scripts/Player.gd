@@ -70,7 +70,6 @@ func _input(event):
 	if event.is_action_pressed("Interact"):
 		pick_object()
 
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
