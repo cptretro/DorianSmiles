@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dp4x5hbf1t4oh"]
+[gd_scene load_steps=33 format=3 uid="uid://dp4x5hbf1t4oh"]
 
 [ext_resource type="Texture2D" uid="uid://cyi4ai3rff8hc" path="res://assets/sky.png" id="1_sfwho"]
 [ext_resource type="PackedScene" uid="uid://difdvuqvvajdu" path="res://Scenes/player.tscn" id="1_uqr7c"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://4au65i4fox7a" path="res://Models/tree_clump2.tscn" id="17_gievq"]
 [ext_resource type="PackedScene" uid="uid://wex1r0ts4ykm" path="res://foliage.tscn" id="24_tifq3"]
 [ext_resource type="PackedScene" uid="uid://ddlltuuapi5a3" path="res://assets/foliage.glb" id="25_gjaqh"]
+[ext_resource type="PackedScene" uid="uid://dguym8qj1h842" path="res://wood spike (functionality).tscn" id="26_b82p1"]
 [ext_resource type="PackedScene" uid="uid://bctqrni78w4mf" path="res://Models/Rocks/rock_4.tscn" id="26_dno73"]
 [ext_resource type="AudioStream" uid="uid://1r81327v6bpg" path="res://Audio/Nighttime Forest Sounds.mp3" id="26_ft5x2"]
 [ext_resource type="PackedScene" uid="uid://b4iwmlx3j1dd5" path="res://Models/Rocks/rock_1.tscn" id="27_a7xfl"]
@@ -1416,6 +1417,12 @@ omni_range = 15.0
 
 [node name="displacement_height_map" parent="Models" instance=ExtResource("8_j2ifa")]
 transform = Transform3D(150, 0, 0, 0, 150, 0, 0, 0, 150, 0, 30.3179, -44.7252)
+
+[node name="Spikes" type="Node" parent="Models"]
+
+[node name="Spike" parent="Models/Spikes" instance=ExtResource("26_b82p1")]
+transform = Transform3D(0.981433, -0.189593, -0.0290436, 0.186373, 0.978424, -0.0891747, 0.0453238, 0.0821061, 0.995592, -24.4717, 16.9463, 42.2078)
+visible = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_ft5x2")
