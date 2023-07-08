@@ -1,9 +1,23 @@
 extends CharacterBody3D
 
-
-const SPEED = 5.0
+var SPEED
+const WAlK_SPEED = 5.0
+const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
+
+#head bob variable
+const BOB_FREQ = 2.0
+const BOB_AMP = 0.08
+var t_bob = 0.0
+
+#FOV variables
+const BASE_FOV = 75.0
+const FOV_CHANGE = 1.5
+
+
+
+
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -43,19 +57,48 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
+	#sprinting
+	if Input.is_action_pressed("sprint"):
+		SPEED = SPRINT_SPEED
+	else:
+		SPEED = WAlK_SPEED
+
 	# Handle Jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	if is_on_floor():
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 7.0) #move_toward(velocity.x, 0, SPEED)
+			velocity.z = lerp(velocity.z, direction.z * SPEED, delta * 7.0) #move_toward(velocity.z, 0, SPEED)
+
 	else:
-		velocity.x = 0.0 #move_toward(velocity.x, 0, SPEED)
-		velocity.z = 0.0 #move_toward(velocity.z, 0, SPEED)
+		velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.z * SPEED, delta * 3.0)
+		
+
+	#head bob
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(t_bob)
+
+	#FOV
+	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 
 	move_and_slide()
+
+
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
+	return pos
+	
+
