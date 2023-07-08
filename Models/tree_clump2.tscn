@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://4au65i4fox7a"]
+
+[ext_resource type="PackedScene" uid="uid://6s6pyv7ewqmq" path="res://assets/tree.tscn" id="1_crvbr"]
+
+[node name="Tree Clump" type="Node3D"]
+
+[node name="tree" parent="." instance=ExtResource("1_crvbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.17548, 0, 1.87494)
+
+[node name="tree2" parent="." instance=ExtResource("1_crvbr")]
+transform = Transform3D(0.779611, 0, 0.626264, 0, 1, 0, -0.626264, 0, 0.779611, 1.70729, 0.244936, -10.1007)
+
+[node name="tree3" parent="." instance=ExtResource("1_crvbr")]
+transform = Transform3D(0.934609, 0, 0.355678, 0, 1, 0, -0.355678, 0, 0.934609, 2.36861, 0, 8.27944)
+
+[node name="tree4" parent="." instance=ExtResource("1_crvbr")]
+transform = Transform3D(0.716862, 0, -0.697215, 0, 1, 0, 0.697215, 0, 0.716862, -2.26541, 0, -6.10565)
+
+[node name="tree5" parent="." instance=ExtResource("1_crvbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87026, 0, 5.46112)
+
+[node name="tree6" parent="." instance=ExtResource("1_crvbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.485979, 0, -2.16942)

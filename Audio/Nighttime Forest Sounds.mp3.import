@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1r81327v6bpg"
+path="res://.godot/imported/Nighttime Forest Sounds.mp3-bf86161bc1d070d1dc942b32053c06c8.mp3str"
+
+[deps]
+
+source_file="res://Audio/Nighttime Forest Sounds.mp3"
+dest_files=["res://.godot/imported/Nighttime Forest Sounds.mp3-bf86161bc1d070d1dc942b32053c06c8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
