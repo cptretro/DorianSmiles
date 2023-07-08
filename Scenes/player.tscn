@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://difdvuqvvajdu"]
+[gd_scene load_steps=11 format=3 uid="uid://difdvuqvvajdu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p4l7p"]
 [ext_resource type="PackedScene" uid="uid://dirs1nt7yvg8m" path="res://assets/sniper.tscn" id="2_0x835"]
 [ext_resource type="PackedScene" uid="uid://qve4flasnpjf" path="res://Scenes/UI/pause_menu.tscn" id="2_6wog5"]
 [ext_resource type="Script" path="res://flashlight_sway.gd" id="3_2wlg1"]
 [ext_resource type="Script" path="res://assets/object_sway.gd" id="3_8fr1q"]
-[ext_resource type="PackedScene" uid="uid://cyvk7m4k53ej2" path="res://old_flashlight.tscn" id="3_xjd3c"]
+[ext_resource type="PackedScene" path="res://old_flashlight.tscn" id="3_xjd3c"]
 [ext_resource type="AudioStream" uid="uid://8xwfbn4uvymg" path="res://Audio/step_grass.mp3" id="4_5rqpm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntdrg"]
