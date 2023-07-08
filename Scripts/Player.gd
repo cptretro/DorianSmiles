@@ -48,6 +48,15 @@ func pick_object():
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	# simulate mouse click to get rid of button
+	call_deferred("right_click")
+	
+func right_click():
+	var debug_right_click = InputEventMouseButton.new()
+	debug_right_click.set_button_index(MOUSE_BUTTON_RIGHT)
+	debug_right_click.set_pressed(true)
+	Input.parse_input_event(debug_right_click)
 
 func _input(event):
 	if event is InputEventMouseMotion:

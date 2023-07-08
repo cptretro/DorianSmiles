@@ -1,6 +1,6 @@
 extends ColorRect
 
-@onready var animator: AnimationPlayer = $AnimationPlayer
+@onready var animator = $AnimationPlayer
 @onready var play_button: Button = find_child("ResumeButton")
 @onready var quit_button: Button = find_child("QuitButton")
 
