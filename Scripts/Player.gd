@@ -32,6 +32,8 @@ var health = 100
 @onready var gun_anim = $Head/Camera3D/Sniper/AnimationPlayer
 @onready var gun_barrel = $Head/Camera3D/Sniper/RayCast3D
 @onready var gun_shot = $Head/Camera3D/Sniper/GunShot
+@onready var footstep_audio = $Footstep
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -46,7 +48,15 @@ func pick_object():
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
+	# simulate mouse click to get rid of button
+	call_deferred("right_click")
+	
+func right_click():
+	var debug_right_click = InputEventMouseButton.new()
+	debug_right_click.set_button_index(MOUSE_BUTTON_RIGHT)
+	debug_right_click.set_pressed(true)
+	Input.parse_input_event(debug_right_click)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -59,7 +69,6 @@ func _input(event):
 		
 	if event.is_action_pressed("Interact"):
 		pick_object()
-
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -80,25 +89,24 @@ func _physics_process(delta):
 
 
 #press "shift" for testing of Respawn window
-	if Input.is_action_just_pressed("sprint"):
-		get_tree().change_scene_to_file("res://Scripts/respawn_menu.tscn")
+	#if Input.is_action_just_pressed("sprint"):
+	#	get_tree().change_scene_to_file("res://Scripts/respawn_menu.tscn")
 		
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor():
-		if direction:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
-		else:
-			velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 7.0) #move_toward(velocity.x, 0, SPEED)
-			velocity.z = lerp(velocity.z, direction.z * SPEED, delta * 7.0) #move_toward(velocity.z, 0, SPEED)
-
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
 	else:
-		velocity.x = 0.0 #move_toward(velocity.x, 0, SPEED)
-		velocity.z = 0.0 #move_toward(velocity.z, 0, SPEED)
+		velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 7.0) #move_toward(velocity.x, 0, SPEED)
+		velocity.z = lerp(velocity.z, direction.z * SPEED, delta * 7.0) #move_toward(velocity.z, 0, SPEED)
+
+	#else:
+	#	velocity.x = 0.0 #move_toward(velocity.x, 0, SPEED)
+	#	velocity.z = 0.0 #move_toward(velocity.z, 0, SPEED)
 		
 	# Gun controls
 	if Input.is_action_pressed("Shoot"):
@@ -126,6 +134,10 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func _play_footstep_audio():
+	footstep_audio.pitch_scale = randf_range(.8, 1.2)
+	footstep_audio.play()
+	
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -133,7 +145,6 @@ func _headbob(time) -> Vector3:
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 	
-		
 
 func _on_regin_timer_timeout():
 	if health < 100:
@@ -143,12 +154,5 @@ func _on_regin_timer_timeout():
 	if health <= 0:
 		health = 0
 		
-		
 
-		
-	
-		
-		
-		
-		
 	

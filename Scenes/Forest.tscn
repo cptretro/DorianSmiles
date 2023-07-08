@@ -100,7 +100,7 @@ environment = SubResource("Environment_kws6k")
 [node name="Player" type="Node" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("1_uqr7c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3258, 17.4046, 46.5219)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.3258, 17.8271, 46.5219)
 
 [node name="Models" type="Node" parent="."]
 
