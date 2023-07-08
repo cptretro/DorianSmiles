@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://difdvuqvvajdu"]
+[gd_scene load_steps=6 format=3 uid="uid://difdvuqvvajdu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p4l7p"]
+[ext_resource type="PackedScene" uid="uid://dirs1nt7yvg8m" path="res://sniper.tscn" id="2_0x835"]
 [ext_resource type="PackedScene" uid="uid://qve4flasnpjf" path="res://Scenes/UI/pause_menu.tscn" id="2_6wog5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntdrg"]
@@ -20,7 +21,7 @@ shape = SubResource("ConvexPolygonShape3D_3iyw8")
 [node name="Head" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56822, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123191, 0.794748, 0)
 
 [node name="hand" type="Marker3D" parent="Head/Camera3D"]
 transform = Transform3D(8.66435, 0, 0, 0, 8.33372, 0, 0, 0, 9.48031, 0, -0.153741, -1.35844)
@@ -35,5 +36,8 @@ spot_range = 15.0
 spot_attenuation = 0.0525558
 spot_angle = 27.1587
 spot_angle_attenuation = 4.75682
+
+[node name="Sniper" parent="Head/Camera3D" instance=ExtResource("2_0x835")]
+transform = Transform3D(0.497149, -0.0264033, 0.0463204, 0.0262894, 0.499302, 0.00244944, -0.0463851, -2.09548e-09, 0.497844, 0.36963, -0.314434, -1.3544)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_6wog5")]

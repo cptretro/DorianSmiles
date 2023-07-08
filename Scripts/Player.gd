@@ -5,10 +5,16 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 
+# bullets
+var bullet = load("res://Scenes/bullet.tscn")
+var instance
+
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var interaction = $Head/Camera3D/RayCast3D
 @onready var hand = $Head/Camera3D/hand
+@onready var gun_anim = $Head/Camera3D/Sniper/AnimationPlayer
+@onready var gun_barrel = $Head/Camera3D/Sniper/RayCast3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -57,5 +63,17 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0.0 #move_toward(velocity.x, 0, SPEED)
 		velocity.z = 0.0 #move_toward(velocity.z, 0, SPEED)
+		
+	# Gun controls
+	if Input.is_action_pressed("Shoot"):
+		if !gun_anim.is_playing():
+			gun_anim.play("shoot")
+			
+			# instantiate bullet based on raycast pos on gun barrel
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
+			
 
 	move_and_slide()
