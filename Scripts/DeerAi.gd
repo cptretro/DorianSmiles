@@ -21,7 +21,7 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	if velocity.length() > 0:
-		$deerhorse/AnimationPlayer.play("horse_rig_Walk")
+		$AnimationPlayer.play("horse_rig_Walk")
 
 # Damage Script, clamps value to 0
 func take_damage(damage: float):
