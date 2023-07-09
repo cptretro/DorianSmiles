@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bikkcglouvm7m"]
+[gd_scene load_steps=15 format=3 uid="uid://bikkcglouvm7m"]
 
 [ext_resource type="Script" path="res://Scripts/DeerAi.gd" id="1_hum4y"]
 [ext_resource type="PackedScene" uid="uid://dpnv14kq0xpyx" path="res://Models/superdeerhorse.glb" id="2_4phic"]
 [ext_resource type="Script" path="res://Scripts/State Machine.gd" id="2_10wwf"]
 [ext_resource type="Script" path="res://Scripts/DeerWander.gd" id="3_ltsyd"]
 [ext_resource type="Script" path="res://Scripts/DeerGrazing.gd" id="4_ms67j"]
+[ext_resource type="Script" path="res://Scripts/DeerAttacking.gd" id="6_bxcgr"]
 [ext_resource type="Animation" uid="uid://ciwdit1261gok" path="res://Models/horse_rig_Walk.res" id="6_h3da6"]
 [ext_resource type="Animation" uid="uid://dxpsschvaic25" path="res://Models/horse_rig_attack.res" id="7_qe7n6"]
 [ext_resource type="Animation" uid="uid://i28ygvbbe54v" path="res://Models/horse_rig_eat.res" id="8_kxm1p"]
@@ -2323,7 +2324,7 @@ bones/338/position = Vector3(-0.17209, 0.841253, -0.0427775)
 bones/338/rotation = Quaternion(-0.696422, -3.29309e-10, -9.87928e-10, 0.717632)
 
 [node name="deer_1" parent="superdeerhorse/horse_rig/Skeleton3D" index="0"]
-transform = Transform3D(5.97948e-08, 1, -6.29013e-08, -0.0195472, -3.31623e-08, -1.00052, -0.999037, 7.58634e-08, 0.0243659, -0.00850702, 0.543533, 0.459582)
+transform = Transform3D(5.97783e-08, 0.999997, -6.26519e-08, -0.0195503, -3.35332e-08, -1.00052, -0.999041, 7.58946e-08, 0.0243652, -0.008507, 0.54353, 0.459581)
 bone_idx = 12
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -2347,6 +2348,10 @@ enemy = NodePath("../..")
 
 [node name="DeerGrazing" type="Node" parent="State Machine"]
 script = ExtResource("4_ms67j")
+
+[node name="DeerAttacking" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_bxcgr")
+enemy = NodePath("../..")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 

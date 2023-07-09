@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dicbj2n5lsm5s" path="res://assets/AllSky_Night_MoonBurst Equirect.png" id="2_sof25"]
 [ext_resource type="Material" uid="uid://cufp2sitxk1u5" path="res://Matirials/wall.tres" id="3_dclom"]
 [ext_resource type="Material" uid="uid://ogl2dya7fgsv" path="res://Matirials/wood.tres" id="4_k4bsp"]
-[ext_resource type="PackedScene" path="res://enemy.tscn" id="5_fo62o"]
-[ext_resource type="PackedScene" path="res://deer_manager.tscn" id="8_yiiqd"]
+[ext_resource type="PackedScene" uid="uid://kpfksqw2pude" path="res://enemy.tscn" id="5_fo62o"]
+[ext_resource type="PackedScene" uid="uid://bdgvi5n5xpfss" path="res://deer_manager.tscn" id="8_yiiqd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fqhax"]
 panorama = ExtResource("2_sof25")
