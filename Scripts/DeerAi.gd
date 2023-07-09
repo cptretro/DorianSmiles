@@ -10,6 +10,8 @@ class_name DeerAi
 
 @export var open_season : bool
 
+var deadcount = 0
+
 func _ready():
 	if !state_manager:
 		state_manager = $StateMachine
@@ -26,8 +28,11 @@ func _ready():
 func _physics_process(_delta):
 	move_and_slide()
 	
-	if velocity.length() > 0:
+	if velocity.length() > 0 and deadcount < 1:
 		$superdeerhorse/AnimationPlayer.play("horse_rig_Run")
+		rotation.y = lerp_angle(rotation.y, atan2(- velocity.x, - velocity.z), 1)
+	elif velocity.length() <= 0 and deadcount < 1:
+		$superdeerhorse/AnimationPlayer.play("horse_rig_eat")
 
 # Damage Script, clamps value to 0
 func take_damage(damage: float):
@@ -48,5 +53,6 @@ func deer_is_killed(pos: Vector3):
 func die():
 	# throw new NotImplementedException()
 	print('dead')
-	#$superdeerhorse/AnimationPlayer.play("horse_rig_Run")
-	pass
+	deadcount += 1
+	$superdeerhorse/AnimationPlayer.play("horse_rigdeath")
+

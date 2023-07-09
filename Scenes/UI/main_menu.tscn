@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://8vq2h0blone5" path="res://assets/campfire.tscn" id="18_1nrdc"]
 [ext_resource type="PackedScene" uid="uid://cytlve453jlsd" path="res://displacement_height_map.tscn" id="19_nmqvs"]
 [ext_resource type="PackedScene" uid="uid://dguym8qj1h842" path="res://wood spike (functionality).tscn" id="20_nd1ry"]
-[ext_resource type="AudioStream" path="res://Audio/Deer_Introduction.mp3" id="21_8gk2n"]
+[ext_resource type="AudioStream" uid="uid://dlxqcum3pml0h" path="res://Audio/Deer_Introduction.mp3" id="21_8gk2n"]
 
 [sub_resource type="Theme" id="Theme_80484"]
 
@@ -1428,6 +1428,7 @@ layout_mode = 2
 theme_override_constants/margin_top = 25
 
 [node name="Options" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/MarginContainer3"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 30
