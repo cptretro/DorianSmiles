@@ -41,5 +41,6 @@ func Update(delta: float):
 			Transitioned.emit(self, "DeerWander")
 		
 func Physics_Update(_delta: float):
+	enemy.velocity.y -= 9.7 * _delta
 	player = get_tree().root.get_node("World").get_node("Player")
 	enemy.look_at(player.position)

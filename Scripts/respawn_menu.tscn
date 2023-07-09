@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://e0thurqmpl1x"]
 
 [ext_resource type="Script" path="res://Respawn_Menu.gd" id="1_sv2oo"]
-[ext_resource type="AudioStream" uid="uid://6p1i21lhe6i3" path="res://Audio/Deer_Death.mp3" id="2_2evwb"]
+[ext_resource type="AudioStream" path="res://Audio/Deer_Death.mp3" id="2_2evwb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3aom"]
 bg_color = Color(1, 1, 1, 0.294118)

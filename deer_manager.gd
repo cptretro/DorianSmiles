@@ -35,8 +35,13 @@ func spawn_deer(pos : Vector3):
 		open_season.emit() # alert all current dear to be angry
 	
 		
-	var deerInstance = deer_scene.instantiate() # change to work w/ dynamic range
-	if is_open_season == 1:
-		deerInstance.get_node("StateMachine").initial_state == DeerAttacking # there's no way this works
-	get_tree().root.get_node("World").get_node("DeerManager").add_child(deerInstance) # Add deer to node of enemies
+	
+	for i in range(2):	
+		var deerInstance = deer_scene.instantiate() # change to work w/ dynamic range
+	
+		deerInstance.position = Vector3(randf_range(0, 165), 50, randf_range(-90, 0))
+		
+		if is_open_season == 1:
+			deerInstance.get_node("StateMachine").initial_state == DeerAttacking # there's no way this works
+		get_tree().root.get_node("World").get_node("DeerManager").add_child(deerInstance) # Add deer to node of enemies
 	pass

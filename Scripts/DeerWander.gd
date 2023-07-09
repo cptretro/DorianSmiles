@@ -21,7 +21,12 @@ func randomize_wander():
 	wander_time = randf_range(1, 4)
 	
 func return_to_spawn():
-	move_direction = (starting_pos - enemy.position).normalized()
+	var x = (starting_pos.x - enemy.position.x)
+	var y = enemy.position.y
+	var z = (starting_pos.z - enemy.position.z)
+	
+	#move_direction = (starting_pos - enemy.position).normalized()
+	move_direction = Vector3(x, y, z).normalized()
 	wander_time = 4
 	
 func enter():
@@ -44,20 +49,18 @@ func switch_to_graze():
 	Transitioned.emit(self, "DeerGrazing")
 
 func Physics_Update(_delta: float):
+	enemy.velocity.y -= 9.7 * _delta
 	if wander_time <= 0:
-		if starting_pos.distance_to(enemy.position) > wander_range:
-			return_to_spawn()
+		# roll dice on if deer wanders or grazes
+		var roll : float = randf_range(1, 100)
+		if fmod(roll, 2) == 0:
+			##print("stick to wandering...")
+			randomize_wander()
 		else:
-			# roll dice on if deer wanders or grazes
-			var roll : float = randf_range(1, 100)
-			if fmod(roll, 2) == 0:
-				##print("stick to wandering...")
-				randomize_wander()
-			else:
-				switch_to_graze()
-				
+			switch_to_graze()
+			
 	else:
-		enemy.velocity = move_direction * move_speed
+		enemy.velocity = Vector3(move_direction.x, -9.7, move_direction.z) * move_speed
 	
 		#player = get_tree().root.get_node("World").get_node("Player")
 		

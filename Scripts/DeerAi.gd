@@ -33,6 +33,13 @@ func _physics_process(_delta):
 		rotation.y = lerp_angle(rotation.y, atan2(- velocity.x, - velocity.z), 1)
 	elif velocity.length() <= 0 and deadcount < 1:
 		$superdeerhorse/AnimationPlayer.play("horse_rig_eat")
+		
+	#if !starting_pos and is_on_floor():
+	#	starting_pos = enemy.position
+		
+	
+	velocity.y -= 9.7 * _delta
+
 
 # Damage Script, clamps value to 0
 func take_damage(damage: float):
