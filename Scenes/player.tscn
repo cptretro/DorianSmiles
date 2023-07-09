@@ -101,5 +101,6 @@ step = 1.0
 show_percentage = false
 
 [node name="damageUI" parent="." instance=ExtResource("8_dqfg0")]
+visible = false
 
 [connection signal="timeout" from="regin_timer" to="." method="_on_regin_timer_timeout"]
