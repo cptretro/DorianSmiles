@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3bjlw7bjm33c"]
+[gd_scene load_steps=6 format=3 uid="uid://cw0tl2io2bnvn"]
 
 [ext_resource type="Script" path="res://Scripts/DeerAi.gd" id="1_rgsqi"]
 [ext_resource type="Script" path="res://Scripts/DeerWander.gd" id="2_wht1e"]
@@ -26,4 +26,3 @@ initial_state = NodePath("DeerIdle")
 
 [node name="DeerIdle" type="Node" parent="State Machine"]
 script = ExtResource("2_wht1e")
-enemy = NodePath("")

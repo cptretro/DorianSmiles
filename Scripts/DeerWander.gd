@@ -2,7 +2,7 @@ extends Deer_State
 class_name DeerWander
 
 @export var enemy: CharacterBody3D
-@export var move_speed := 10.0
+@export var move_speed := 2.0
 @export var wander_range := 5
 
 var player: CharacterBody3D
@@ -47,13 +47,14 @@ func Update(delta: float):
 func switch_to_graze():
 	print("{DeerWander} to {DeerGrazing}")
 	Transitioned.emit(self, "DeerGrazing")
-		
+
 func Physics_Update(_delta: float):
 	if enemy:
 		enemy.velocity = move_direction * move_speed
 	
 	player = get_tree().root.get_node("World").get_node("Player")
-	#print(player)
+	print(player)
+	print(enemy)
 	
 	var direction = Vector3(999,999,99)
 	if player:

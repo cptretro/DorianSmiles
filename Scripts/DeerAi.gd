@@ -10,6 +10,8 @@ class_name DeerAi
 
 func _ready():
 	# Not Implemented() :: Get signal from deer manager to look for nearby deer deaths
+	var test = get_tree().root.get_node("World")
+	print(test)
 	get_tree().root.get_node("World").get_node("DeerManager").deer_killed.connect(self.deer_is_killed)
 	
 	# Get Player reference

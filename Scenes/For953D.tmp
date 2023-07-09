@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dp4x5hbf1t4oh"]
+[gd_scene load_steps=36 format=3 uid="uid://dp4x5hbf1t4oh"]
 
 [ext_resource type="Script" path="res://deer_manager.gd" id="1_ep0iw"]
 [ext_resource type="Texture2D" uid="uid://cyi4ai3rff8hc" path="res://assets/sky.png" id="1_sfwho"]
@@ -8,6 +8,7 @@
 [ext_resource type="MeshLibrary" uid="uid://domiy3dhsnysh" path="res://assets/tree_mesh.tres" id="4_wubgh"]
 [ext_resource type="MeshLibrary" uid="uid://cd4b3bhpitk5l" path="res://assets/foliage_mesh.tres" id="5_vgsq7"]
 [ext_resource type="PackedScene" uid="uid://8vq2h0blone5" path="res://assets/campfire.tscn" id="6_3g8sh"]
+[ext_resource type="PackedScene" path="res://Scenes/damage_ui.tscn" id="8_5uu76"]
 [ext_resource type="PackedScene" uid="uid://cytlve453jlsd" path="res://displacement_height_map.tscn" id="8_j2ifa"]
 [ext_resource type="PackedScene" uid="uid://6s6pyv7ewqmq" path="res://assets/tree.tscn" id="9_3yfbx"]
 [ext_resource type="PackedScene" uid="uid://dscudl03lcisy" path="res://Models/Rocks/big_rock_1.tscn" id="10_hgn0b"]
@@ -25,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bctqrni78w4mf" path="res://Models/Rocks/rock_4.tscn" id="26_dno73"]
 [ext_resource type="AudioStream" uid="uid://1r81327v6bpg" path="res://Audio/Nighttime Forest Sounds.mp3" id="26_ft5x2"]
 [ext_resource type="PackedScene" uid="uid://b4iwmlx3j1dd5" path="res://Models/Rocks/rock_1.tscn" id="27_a7xfl"]
-[ext_resource type="PackedScene" uid="uid://i1n1ba021txm" path="res://DeerEnemy.tscn" id="27_y4vdk"]
+[ext_resource type="PackedScene" path="res://DeerEnemy.tscn" id="27_y4vdk"]
 [ext_resource type="PackedScene" uid="uid://dvu6847lyrd6s" path="res://Models/Rocks/rock_3.tscn" id="28_68v56"]
 [ext_resource type="PackedScene" uid="uid://30tekmj8r6na" path="res://Models/Rocks/rock_5.tscn" id="29_ycvmd"]
 
@@ -105,6 +106,12 @@ environment = SubResource("Environment_kws6k")
 
 [node name="Player" parent="." instance=ExtResource("1_uqr7c")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.3258, 17.8271, 46.5219)
+
+[node name="damageUI" parent="Player" instance=ExtResource("8_5uu76")]
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = -3.0
 
 [node name="Playerasdf" type="Node" parent="."]
 
