@@ -11,10 +11,8 @@ var move_direction : Vector3
 var wander_time : float
 
 func randomize_wander():
-	
 	move_direction = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
 	wander_time = randf_range(1, 3)
-	print("Wandering for :", wander_time, " seconds")
 	
 func return_to_spawn():
 	move_direction = (starting_pos - enemy.position).normalized()
@@ -35,14 +33,13 @@ func exit():
 func Update(delta: float):
 	if wander_time > 0:
 		wander_time -= delta
-		#print(wander_time)
 	else:
 		if starting_pos.distance_to(enemy.position) > wander_range:
 			return_to_spawn()
 		else:
 			# roll dice on if deer wanders or grazes
-			var roll = randf_range(1, 100)
-			if roll % 2 == 0:
+			var roll : float = randf_range(1, 100)
+			if fmod(roll, 2) == 0:
 				randomize_wander()
 			else:
 				switch_to_graze()

@@ -23,12 +23,11 @@ func Update(delta: float):
 		idle_time -= delta
 	else:
 		player = get_tree().root.get_node("World").get_node("Player")
-		#print(player)
 		
-		var direction = Vector3(999,999,99)
+		var direction = Vector3(999,999,99) # Default value that's impossibly high
+		
 		if player:
-			direction = player.position - enemy.position
-			print(direction.length())
+			direction = player.position - enemy.position # direction to starting position
 		else:
 			print("Error: Player not found")
 		

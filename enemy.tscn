@@ -32,7 +32,8 @@ initial_state = NodePath("DeerWander")
 [node name="DeerWander" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("3_tw1t2")
 enemy = NodePath("../..")
-move_speed = 2.0
+move_speed = 1.0
+wander_range = 4
 
 [node name="DeerGrazing" type="Node" parent="State Machine"]
 script = ExtResource("4_pa80g")
