@@ -305,6 +305,7 @@ bones/338/rotation = Quaternion(-0.696422, -3.29309e-10, -9.87928e-10, 0.717632)
 transform = Transform3D(-0.000204796, 1.05255, 0.000407525, -0.181276, 0.000341219, -0.974833, -0.914425, -0.000304398, 0.323793, -0.00867823, 0.468726, 0.7667)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_1lcyt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["enemy"]]
