@@ -83,6 +83,8 @@ func _input(event):
 		
 	if event.is_action_pressed("Interact"):
 		pick_object()
+		#test for signal
+		get_tree().root.get_node("DeerManager").deer_killed.emit(Vector3.ZERO)
 
 func _physics_process(delta):
 	if Input.is_action_pressed("hit"):

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://3bjlw7bjm33c"]
+
+[ext_resource type="Script" path="res://Scripts/DeerAi.gd" id="1_rgsqi"]
+[ext_resource type="Script" path="res://Scripts/DeerWander.gd" id="2_wht1e"]
+[ext_resource type="Script" path="res://Scripts/State Machine.gd" id="2_xr3w2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5nsi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ncj5p"]
+
+[node name="Enemy" type="Node"]
+script = ExtResource("1_rgsqi")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87082, 1.74865, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_w5nsi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_ncj5p")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_xr3w2")
+initial_state = NodePath("DeerIdle")
+
+[node name="DeerIdle" type="Node" parent="State Machine"]
+script = ExtResource("2_wht1e")
+enemy = NodePath("")

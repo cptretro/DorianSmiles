@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://kpfksqw2pude"]
+
+[ext_resource type="Script" path="res://Scripts/DeerAi.gd" id="1_bd56k"]
+[ext_resource type="Script" path="res://Scripts/State Machine.gd" id="1_vebty"]
+[ext_resource type="Script" path="res://Scripts/DeerIdle.gd" id="2_3fn44"]
+[ext_resource type="Script" path="res://Scripts/DeerWander.gd" id="3_tw1t2"]
+[ext_resource type="Script" path="res://Scripts/DeerGrazing.gd" id="4_pa80g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u82sh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xjuel"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hxx7u"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_bd56k")
+
+[node name="Capsule" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_u82sh")
+
+[node name="Face" type="MeshInstance3D" parent="Capsule"]
+transform = Transform3D(0.7, 0, 0, 0, 0.2, 0, 0, 0, 0.3, -0.002, 0.6, -0.502)
+mesh = SubResource("BoxMesh_xjuel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_hxx7u")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_vebty")
+initial_state = NodePath("DeerWander")
+
+[node name="DeerWander" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_tw1t2")
+enemy = NodePath("../..")
+move_speed = 1.0
+wander_range = 4
+
+[node name="DeerGrazing" type="Node" parent="State Machine"]
+script = ExtResource("4_pa80g")
+
+[node name="DeerIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("2_3fn44")
+enemy = NodePath("../..")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
