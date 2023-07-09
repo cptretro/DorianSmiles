@@ -59,6 +59,7 @@ func Physics_Update(_delta: float):
 	else:
 		enemy.velocity = move_direction * move_speed
 	
+
 		#player = get_tree().root.get_node("World").get_node("Player")
 		
 		var direction = Vector3(999,999,99)
@@ -68,6 +69,7 @@ func Physics_Update(_delta: float):
 		else:
 			#print("Error: Player not found")
 			pass
+
 
 		if direction.length() < 2:
 			#print("{DeerWander} to {DeerIdle}")

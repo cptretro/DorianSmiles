@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dp4x5hbf1t4oh"]
+[gd_scene load_steps=36 format=3 uid="uid://dp4x5hbf1t4oh"]
 
 [ext_resource type="Script" path="res://deer_manager.gd" id="1_ep0iw"]
 [ext_resource type="Texture2D" uid="uid://cyi4ai3rff8hc" path="res://assets/sky.png" id="1_sfwho"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://8vq2h0blone5" path="res://assets/campfire.tscn" id="6_3g8sh"]
 [ext_resource type="PackedScene" path="res://displacement_height_map.tscn" id="8_j2ifa"]
 [ext_resource type="PackedScene" uid="uid://6s6pyv7ewqmq" path="res://assets/tree.tscn" id="9_3yfbx"]
+[ext_resource type="AudioStream" uid="uid://jdd5uu2xvbqy" path="res://Audio/Haunted_House_Lofi_Hip_Hop_Mix_No_Copyright_Halloween_Lofi_Beats.mp3" id="9_b1hp8"]
 [ext_resource type="PackedScene" uid="uid://dscudl03lcisy" path="res://Models/Rocks/big_rock_1.tscn" id="10_hgn0b"]
 [ext_resource type="PackedScene" uid="uid://dbxwt1vvyu7cy" path="res://Models/dead_tree_1.tscn" id="10_mqnre"]
 [ext_resource type="PackedScene" uid="uid://d2grgr0t8t14e" path="res://Models/Rocks/rock_2.tscn" id="11_t2wex"]
@@ -25,11 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://bctqrni78w4mf" path="res://Models/Rocks/rock_4.tscn" id="26_dno73"]
 [ext_resource type="AudioStream" uid="uid://1r81327v6bpg" path="res://Audio/Nighttime Forest Sounds.mp3" id="26_ft5x2"]
 [ext_resource type="PackedScene" uid="uid://b4iwmlx3j1dd5" path="res://Models/Rocks/rock_1.tscn" id="27_a7xfl"]
-[ext_resource type="PackedScene" uid="uid://i1n1ba021txm" path="res://DeerEnemy.tscn" id="27_y4vdk"]
+[ext_resource type="PackedScene" uid="uid://bikkcglouvm7m" path="res://DeerEnemy.tscn" id="27_y4vdk"]
 [ext_resource type="PackedScene" uid="uid://dvu6847lyrd6s" path="res://Models/Rocks/rock_3.tscn" id="28_68v56"]
 [ext_resource type="PackedScene" uid="uid://30tekmj8r6na" path="res://Models/Rocks/rock_5.tscn" id="29_ycvmd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qa7y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c7in"]
 albedo_texture = ExtResource("2_32ohf")
 metallic_specular = 0.0
 normal_enabled = true
@@ -38,7 +39,7 @@ uv1_scale = Vector3(50, 50, 50)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dfdj3"]
-material = SubResource("StandardMaterial3D_2qa7y")
+material = SubResource("StandardMaterial3D_1c7in")
 size = Vector2(100, 100)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_raavp"]
@@ -47,12 +48,12 @@ data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0,
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a3ll7"]
 panorama = ExtResource("1_sfwho")
 
-[sub_resource type="Sky" id="Sky_6pls0"]
+[sub_resource type="Sky" id="Sky_tejja"]
 sky_material = SubResource("PanoramaSkyMaterial_a3ll7")
 
 [sub_resource type="Environment" id="Environment_kws6k"]
 background_mode = 2
-sky = SubResource("Sky_6pls0")
+sky = SubResource("Sky_tejja")
 tonemap_mode = 2
 glow_normalized = true
 glow_blend_mode = 0
@@ -108,9 +109,14 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.3258, 17.8271, 46.5
 
 [node name="Playerasdf" type="Node" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Playerasdf"]
+[node name="Ambience" type="AudioStreamPlayer2D" parent="Playerasdf"]
 stream = ExtResource("26_ft5x2")
 volume_db = -14.182
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Playerasdf"]
+stream = ExtResource("9_b1hp8")
+volume_db = -16.132
 autoplay = true
 
 [node name="Models" type="Node" parent="."]
@@ -1436,3 +1442,9 @@ visible = false
 
 [node name="DeerEnemy" parent="." instance=ExtResource("27_y4vdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6907, 17.9112, 43.2864)
+
+[node name="deer_1" parent="DeerEnemy/superdeerhorse/horse_rig/Skeleton3D" index="0"]
+transform = Transform3D(5.97783e-08, 0.999997, -6.26519e-08, -0.0195503, -3.35332e-08, -1.00052, -0.999041, 7.58946e-08, 0.0243652, -0.008507, 0.54353, 0.459581)
+
+[editable path="DeerEnemy"]
+[editable path="DeerEnemy/superdeerhorse"]

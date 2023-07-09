@@ -26,6 +26,9 @@ const FOV_CHANGE = 1.5
 const max_health = 100
 var health = max_health
 
+var time_elapsed := 0.0
+var counter = 1
+var is_stopped := false
 
 
 @onready var hit_damage = $damageUI
@@ -51,6 +54,7 @@ func pick_object():
 		print("colided")
 
 func _ready():
+	is_stopped = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_health_label()
 	$HUD/healthbar.max_value = max_health
@@ -68,10 +72,6 @@ func right_click():
 	Input.parse_input_event(debug_right_click)
 	
 
-	
-	
-	
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -87,6 +87,10 @@ func _input(event):
 		get_tree().root.get_node("DeerManager").deer_killed.emit(Vector3.ZERO)
 
 func _physics_process(delta):
+	if !is_stopped:
+		time_elapsed += delta
+		Stopwatch.time_alive = time_elapsed
+	
 	if Input.is_action_pressed("hit"):
 		damage()
 		print("damage is: ", health)
@@ -181,5 +185,8 @@ func damage():
 	
 	if health < 0:
 		health = 0
+		is_stopped = true
+		get_tree().change_scene_to_file("res://Scripts/respawn_menu.tscn")
+		#$RespawnMenu.visible = true
 	set_health_label()
 	set_health_bar()

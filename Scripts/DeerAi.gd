@@ -25,6 +25,9 @@ func _ready():
 	
 func _physics_process(_delta):
 	move_and_slide()
+	
+	if velocity.length() > 0:
+		$superdeerhorse/AnimationPlayer.play("horse_rig_Run")
 
 # Damage Script, clamps value to 0
 func take_damage(damage: float):
@@ -44,4 +47,6 @@ func deer_is_killed(pos: Vector3):
 	
 func die():
 	# throw new NotImplementedException()
+	print('dead')
+	#$superdeerhorse/AnimationPlayer.play("horse_rig_Run")
 	pass
