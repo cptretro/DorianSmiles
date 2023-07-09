@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name DeerAi
 
-#signal deer_killed(position)
+signal deer_killed
 
 @export var health := 10
 
@@ -19,7 +19,7 @@ func _ready():
 		player = get_tree().root.get_node("World").get_node("Player")
 	# Not Implemented() :: Get signal from deer manager to look for nearby deer deaths
 
-	get_tree().root.get_node("World").get_node("DeerManager").deer_killed.connect(self.deer_is_killed)
+	#get_tree().root.get_node("World").get_node("DeerManager").deer_killed.connect(self.deer_is_killed)
 	
 
 	
@@ -47,6 +47,6 @@ func deer_is_killed(pos: Vector3):
 	
 func die():
 	# throw new NotImplementedException()
-	print('dead')
+	deer_killed.emit()
 	#$superdeerhorse/AnimationPlayer.play("horse_rig_Run")
 	pass
