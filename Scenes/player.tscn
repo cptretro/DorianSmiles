@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://difdvuqvvajdu"]
+[gd_scene load_steps=12 format=3 uid="uid://difdvuqvvajdu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p4l7p"]
 [ext_resource type="PackedScene" uid="uid://dirs1nt7yvg8m" path="res://assets/sniper.tscn" id="2_0x835"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://assets/object_sway.gd" id="3_8fr1q"]
 [ext_resource type="PackedScene" path="res://old_flashlight.tscn" id="3_xjd3c"]
 [ext_resource type="AudioStream" uid="uid://8xwfbn4uvymg" path="res://Audio/step_grass.mp3" id="4_5rqpm"]
+[ext_resource type="PackedScene" uid="uid://duqrgxd6ujqr5" path="res://Scenes/damage_ui.tscn" id="8_saaia"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntdrg"]
 
@@ -97,5 +98,7 @@ offset_right = 503.0
 offset_bottom = 27.0
 step = 1.0
 show_percentage = false
+
+[node name="damageUI" parent="." instance=ExtResource("8_saaia")]
 
 [connection signal="timeout" from="regin_timer" to="." method="_on_regin_timer_timeout"]
