@@ -174,5 +174,6 @@ mesh = SubResource("BoxMesh_t755u")
 shape = SubResource("BoxShape3D_umpi6")
 
 [node name="DeerManager" parent="." instance=ExtResource("8_yiiqd")]
+is_open_season = 1
 
 [editable path="Player"]

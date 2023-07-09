@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://i1n1ba021txm"]
+[gd_scene load_steps=9 format=3 uid="uid://i1n1ba021txm"]
 
 [ext_resource type="Script" path="res://Scripts/DeerAi.gd" id="1_hum4y"]
 [ext_resource type="Script" path="res://Scripts/State Machine.gd" id="2_10wwf"]
 [ext_resource type="Script" path="res://Scripts/DeerWander.gd" id="3_ltsyd"]
 [ext_resource type="Script" path="res://Scripts/DeerGrazing.gd" id="4_ms67j"]
+[ext_resource type="Script" path="res://Scripts/DeerAttacking.gd" id="5_xu2w6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1lcyt"]
 
@@ -41,5 +42,9 @@ enemy = NodePath("../..")
 
 [node name="DeerGrazing" type="Node" parent="StateMachine"]
 script = ExtResource("4_ms67j")
+
+[node name="DeerAttacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_xu2w6")
+enemy = NodePath("../..")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]

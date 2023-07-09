@@ -4,6 +4,8 @@ class_name DeerManager
 signal deer_killed(position)
 signal open_season
 
+@export var is_open_season :=  0
+
 @export var open_season_kill_requirement := 5
 var deer_kill_counter : int
 @export var deer_scene : PackedScene # Deer Prefab
@@ -20,15 +22,21 @@ func _process(_delta):
 	# test emit
 	if Input.is_action_just_pressed("ui_accept"): ## enter key
 		deer_killed.emit(Vector3.ZERO)
+	if Input.is_action_just_pressed("start_open_season"): ## enter key
+		open_season.emit()
+	
 
 # 
 func spawn_deer(pos : Vector3):
 	deer_kill_counter += 1
-	print("spawn a deer")
+	print("spawn two deer")
+	
 	if deer_kill_counter > open_season_kill_requirement:
 		open_season.emit() # alert all current dear to be angry
 	
 		
 	var deerInstance = deer_scene.instantiate() # change to work w/ dynamic range
+	if is_open_season == 1:
+		deerInstance.get_node("StateMachine").initial_state == DeerAttacking # there's no way this works
 	get_tree().root.get_node("World").get_node("DeerManager").add_child(deerInstance) # Add deer to node of enemies
 	pass

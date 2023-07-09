@@ -35,12 +35,12 @@ func exit():
 func Update(delta: float):
 	if wander_time > 0:
 		wander_time -= delta
-		print(wander_time)
+		#print(wander_time)
 	
 		
 
 func switch_to_graze():
-	print("{DeerWander} to {DeerGrazing}")
+	#print("{DeerWander} to {DeerGrazing}")
 	Transitioned.emit(self, "DeerGrazing")
 
 func Physics_Update(_delta: float):
@@ -51,7 +51,7 @@ func Physics_Update(_delta: float):
 			# roll dice on if deer wanders or grazes
 			var roll : float = randf_range(1, 100)
 			if fmod(roll, 2) == 0:
-				print("stick to wandering...")
+				##print("stick to wandering...")
 				randomize_wander()
 			else:
 				switch_to_graze()
@@ -66,10 +66,10 @@ func Physics_Update(_delta: float):
 			direction = player.position - enemy.position
 			#print(direction.length())
 		else:
-			print("Error: Player not found")
+			#print("Error: Player not found")
 			pass
 
 		if direction.length() < 2:
-			print("{DeerWander} to {DeerIdle}")
+			#print("{DeerWander} to {DeerIdle}")
 			Transitioned.emit(self, "DeerIdle")
 		

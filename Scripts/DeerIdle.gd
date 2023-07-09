@@ -37,7 +37,7 @@ func Update(delta: float):
 		if direction.length() < 5:
 			idle()
 		else:
-			print("{DeerIdle} to {DeerWander}")
+			#print("{DeerIdle} to {DeerWander}")
 			Transitioned.emit(self, "DeerWander")
 		
 func Physics_Update(_delta: float):
