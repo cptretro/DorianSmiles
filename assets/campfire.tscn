@@ -1,0 +1,110 @@
+[gd_scene load_steps=17 format=3 uid="uid://8vq2h0blone5"]
+
+[ext_resource type="PackedScene" uid="uid://dk4tr401liuo7" path="res://assets/campfire.glb" id="1_6yrvn"]
+[ext_resource type="Texture2D" uid="uid://byic5mqiijkno" path="res://assets/fire.png" id="2_hcr8g"]
+[ext_resource type="Texture2D" uid="uid://2ecmxtmdocmm" path="res://assets/smoke.png" id="3_glhgs"]
+[ext_resource type="AudioStream" uid="uid://dsplm0tbeqavo" path="res://Audio/Fire Crackling Sound Effect.mp3" id="4_wy11p"]
+
+[sub_resource type="Gradient" id="Gradient_621xt"]
+offsets = PackedFloat32Array(0, 0.505929, 0.648221, 0.996047)
+colors = PackedColorArray(0.935626, 0.799581, 3.85046e-07, 1, 0.980191, 0.371481, 0.162395, 1, 0.983395, 0.340703, 0.17407, 1, 1, 0.1812, 0.234576, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iuj46"]
+gradient = SubResource("Gradient_621xt")
+
+[sub_resource type="Curve" id="Curve_is72a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.306338, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sxxgk"]
+curve = SubResource("Curve_is72a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qt1r7"]
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+angle_max = 360.0
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_sxxgk")
+color_ramp = SubResource("GradientTexture1D_iuj46")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mno14"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_hcr8g")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_lfe6b"]
+material = SubResource("StandardMaterial3D_mno14")
+
+[sub_resource type="Gradient" id="Gradient_2dm2o"]
+offsets = PackedFloat32Array(0, 0.312253, 0.703557, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.262745, 1, 1, 1, 0.619608, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wa3xw"]
+gradient = SubResource("Gradient_2dm2o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3yql"]
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+angle_max = 360.0
+color_ramp = SubResource("GradientTexture1D_wa3xw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kblxm"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_glhgs")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_bxqqm"]
+material = SubResource("StandardMaterial3D_kblxm")
+
+[node name="campfire" instance=ExtResource("1_6yrvn")]
+
+[node name="flames" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(0.999537, 0.0272693, -0.0135088, -0.0270732, 0.999528, 0.0144956, 0.0138977, -0.0141231, 0.999804, 0, 0.285014, 0)
+amount = 16
+preprocess = 2.0
+process_material = SubResource("ParticleProcessMaterial_qt1r7")
+draw_pass_1 = SubResource("QuadMesh_lfe6b")
+
+[node name="smoke" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(0.999537, 0.0272693, -0.0135088, -0.0270732, 0.999528, 0.0144956, 0.0138977, -0.0141231, 0.999804, 0, 0.258625, 0)
+amount = 16
+lifetime = 2.0
+preprocess = 2.0
+speed_scale = 0.66
+visibility_aabb = AABB(-4, -4.89539, -4, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_a3yql")
+draw_pass_1 = SubResource("QuadMesh_bxqqm")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("4_wy11p")
+autoplay = true
+max_distance = 13.0

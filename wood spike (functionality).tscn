@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dguym8qj1h842"]
+
+[ext_resource type="PackedScene" uid="uid://cauv3qg06rval" path="res://wooden_stake.tscn" id="1_umo1s"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="wooden_stake" parent="." instance=ExtResource("1_umo1s")]
+transform = Transform3D(1, 0, 0, 0, 0.999298, 0.0374634, 0, -0.0374634, 0.999298, -0.0122766, 0, 0.060586)

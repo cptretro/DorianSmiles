@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj2lkok7r0hvw"]
+
+[ext_resource type="PackedScene" uid="uid://o2oqnvww2p5j" path="res://assets/ForestPack/BigRock1.glb" id="1_j5v22"]
+
+[node name="BigRock1" instance=ExtResource("1_j5v22")]
