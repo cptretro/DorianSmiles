@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cv4wwldfy0u7u"]
+[gd_scene load_steps=28 format=3 uid="uid://cv4wwldfy0u7u"]
 
 [ext_resource type="Texture2D" uid="uid://cyi4ai3rff8hc" path="res://assets/sky.png" id="1_o5wbk"]
 [ext_resource type="PackedScene" uid="uid://6s6pyv7ewqmq" path="res://assets/tree.tscn" id="2_pokq3"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cytlve453jlsd" path="res://displacement_height_map.tscn" id="19_nmqvs"]
 [ext_resource type="PackedScene" uid="uid://dguym8qj1h842" path="res://wood spike (functionality).tscn" id="20_nd1ry"]
 [ext_resource type="AudioStream" uid="uid://dlxqcum3pml0h" path="res://Audio/Deer_Introduction.mp3" id="21_8gk2n"]
+[ext_resource type="AudioStream" uid="uid://1r81327v6bpg" path="res://Audio/Nighttime Forest Sounds.mp3" id="22_18io3"]
 
 [sub_resource type="Theme" id="Theme_80484"]
 
@@ -1428,10 +1429,11 @@ layout_mode = 2
 theme_override_constants/margin_top = 25
 
 [node name="Options" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/MarginContainer3"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "Credits"
 
 [node name="MarginContainer4" type="MarginContainer" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -1446,6 +1448,11 @@ text = "Quit"
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_8gk2n")
 volume_db = -10.882
+autoplay = true
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_18io3")
+volume_db = -14.182
 autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
