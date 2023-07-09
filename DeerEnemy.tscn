@@ -9,13 +9,13 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aplau"]
 
-[node name="DeerEnemy" type="CharacterBody3D"]
+[node name="DeerEnemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_hum4y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_1lcyt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["enemy"]]
 shape = SubResource("CapsuleShape3D_aplau")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

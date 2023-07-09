@@ -1,6 +1,6 @@
 extends Node3D
 
-const SPEED = 67.0
+const SPEED = 80.0
 
 @onready var mesh = $MeshInstance3D
 @onready var ray = $RayCast3D
@@ -19,9 +19,10 @@ func _process(delta):
 		mesh.visible = false
 		particles.emitting = true
 		ray.enabled = false
+		print('colliding with: ', ray.get_collider())
 		# check if bullet should deal damage (assign group from indv. col)
 		if ray.get_collider().is_in_group("enemy"):
-			ray.get_collider().hit()
+			ray.get_collider().take_damage(10)
 		
 		await get_tree().create_timer(1.0).timeout
 		queue_free()

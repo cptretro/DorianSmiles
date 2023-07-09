@@ -32,6 +32,7 @@ shape = SubResource("ConvexPolygonShape3D_3iyw8")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123191, 0.794748, 0)
+current = true
 
 [node name="hand" type="Marker3D" parent="Head/Camera3D"]
 transform = Transform3D(8.66435, 0, 0, 0, 8.33372, 0, 0, 0, 9.48031, 0, -0.153741, -1.35844)
@@ -58,7 +59,7 @@ light_color = Color(1, 0.992157, 0.733333, 1)
 light_energy = 0.07
 
 [node name="Sniper" parent="Head/Camera3D" instance=ExtResource("2_0x835")]
-transform = Transform3D(0.495315, 0.0502695, 0.0462129, -0.0502948, 0.497459, -0.00206106, -0.0461853, -0.00260679, 0.497856, 0.36963, -0.314434, -1.3544)
+transform = Transform3D(0.198272, 0.0201985, 0.0167355, -0.0202111, 0.198975, -0.00069813, -0.0167202, -0.000999114, 0.199297, 0.13, -0.109, -0.514)
 script = ExtResource("3_8fr1q")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_6wog5")]
