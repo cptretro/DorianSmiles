@@ -28,7 +28,7 @@ var health = max_health
 
 
 
-
+@onready var hit_damage = $damageUI
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var interaction = $Head/Camera3D/RayCast3D
@@ -55,6 +55,8 @@ func _ready():
 	set_health_label()
 	$HUD/healthbar.max_value = max_health
 	set_health_bar()
+	
+	$damageUI.visible = false
 	
 	# simulate mouse click to get rid of button
 	call_deferred("right_click")
@@ -171,6 +173,10 @@ func set_health_bar():
 
 func damage(): 
 	health -= 10
+	hit_damage.visible = true
+	await get_tree().create_timer(0.2).timeout
+	hit_damage.visible = false
+	
 	if health < 0:
 		health = 0
 	set_health_label()
