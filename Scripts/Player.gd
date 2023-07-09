@@ -181,5 +181,6 @@ func damage():
 	
 	if health < 0:
 		health = 0
+		get_tree().change_scene_to_file("res://Scripts/respawn_menu.tscn")
 	set_health_label()
 	set_health_bar()

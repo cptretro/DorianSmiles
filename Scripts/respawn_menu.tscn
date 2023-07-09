@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://e0thurqmpl1x"]
+[gd_scene load_steps=7 format=3 uid="uid://e0thurqmpl1x"]
 
 [ext_resource type="Script" path="res://Respawn_Menu.gd" id="1_sv2oo"]
+[ext_resource type="AudioStream" uid="uid://6p1i21lhe6i3" path="res://Audio/Deer_Death.mp3" id="2_2evwb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3aom"]
 bg_color = Color(1, 1, 1, 0.294118)
@@ -79,6 +80,10 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../Respawn")
 theme_override_font_sizes/font_size = 50
 text = "Main Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2evwb")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

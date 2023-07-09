@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dpnv14kq0xpyx" path="res://Models/superdeerhorse.glb" id="1_slou5"]
 [ext_resource type="Animation" uid="uid://778ru0mmsdih" path="res://Models/horse_riglook.res" id="2_tq50t"]
-[ext_resource type="Animation" uid="uid://dlup3uj0vytpg" path="res://Models/horse_rig_attack.res" id="3_bl6nh"]
-[ext_resource type="Animation" uid="uid://cq3ufk4mnm3hk" path="res://Models/horse_rig_eat.res" id="4_k3jwx"]
-[ext_resource type="Animation" uid="uid://ctuprqgcxuhxi" path="res://Models/horse_rig_Walk.res" id="5_hc53g"]
+[ext_resource type="Animation" uid="uid://dxpsschvaic25" path="res://Models/horse_rig_attack.res" id="3_bl6nh"]
+[ext_resource type="Animation" uid="uid://i28ygvbbe54v" path="res://Models/horse_rig_eat.res" id="4_k3jwx"]
+[ext_resource type="Animation" uid="uid://ciwdit1261gok" path="res://Models/horse_rig_Walk.res" id="5_hc53g"]
 
 [sub_resource type="Animation" id="Animation_1cbli"]
 resource_name = "horse_rig_Run"
@@ -2353,7 +2353,7 @@ bones/338/position = Vector3(-0.17209, 0.831368, -0.048939)
 bones/338/rotation = Quaternion(-0.689229, 2.56916e-09, 6.58505e-11, 0.724544)
 
 [node name="deer_1" parent="horse_rig/Skeleton3D" index="0"]
-transform = Transform3D(0.0191757, 0.98788, 0.0102804, -0.269687, 0.0179999, -0.969996, -0.979592, 0.0201623, 0.239825, -0.000199919, 0.432012, 0.714566)
+transform = Transform3D(0.0191757, 0.98788, 0.0102804, -0.269687, 0.0179999, -0.969996, -0.979592, 0.0201623, 0.239825, -0.000199919, 0.432011, 0.714566)
 bone_idx = 12
 
 [node name="AnimationPlayer" parent="." index="117"]
