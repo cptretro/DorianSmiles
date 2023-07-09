@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://i1n1ba021txm"]
+[gd_scene load_steps=8 format=3 uid="uid://i1n1ba021txm"]
 
 [ext_resource type="Script" path="res://Scripts/DeerAi.gd" id="1_hum4y"]
 [ext_resource type="Script" path="res://Scripts/State Machine.gd" id="2_10wwf"]
@@ -7,30 +7,39 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1lcyt"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_0t5m1"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aplau"]
 
-[node name="DeerEnemy" type="CharacterBody3D"]
+[node name="DeerEnemy" type="CharacterBody3D" node_paths=PackedStringArray("state_manager")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_hum4y")
+state_manager = NodePath("StateMachine")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="capsule" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_1lcyt")
+
+[node name="Face" type="MeshInstance3D" parent="capsule"]
+transform = Transform3D(0.7, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0, 0.6, -0.5)
+mesh = SubResource("BoxMesh_0t5m1")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_aplau")
 
-[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_10wwf")
-initial_state = NodePath("DeerIdle")
+initial_state = NodePath("DeerWander")
 
-[node name="DeerIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+[node name="DeerIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("3_ltsyd")
 enemy = NodePath("../..")
 
-[node name="DeerWander" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+[node name="DeerWander" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("3_ltsyd")
 enemy = NodePath("../..")
 
-[node name="DeerGrazing" type="Node" parent="State Machine"]
+[node name="DeerGrazing" type="Node" parent="StateMachine"]
 script = ExtResource("4_ms67j")
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]

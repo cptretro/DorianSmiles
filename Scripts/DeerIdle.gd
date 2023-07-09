@@ -15,21 +15,23 @@ func enter():
 	idle()
 	
 
+func _ready():
+	player = get_tree().root.get_node("World").get_node("Player")
+	
 func exit():
 	idle_time = 0
 	
 func Update(delta: float):
 	if idle_time > 0:
 		idle_time -= delta
-	else:
-		player = get_tree().root.get_node("World").get_node("Player")
-		
+	else:		
 		var direction = Vector3(999,999,99) # Default value that's impossibly high
 		
 		if player:
 			direction = player.position - enemy.position # direction to starting position
 		else:
-			print("Error: Player not found")
+			#print("Error: Player not found")
+			pass
 		
 		# Continue to watch if player does not leave extended area
 		if direction.length() < 5:

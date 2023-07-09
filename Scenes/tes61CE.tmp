@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1mflqkle2ddi"]
+[gd_scene load_steps=18 format=3 uid="uid://b1mflqkle2ddi"]
 
 [ext_resource type="PackedScene" uid="uid://difdvuqvvajdu" path="res://Scenes/player.tscn" id="1_f6xjw"]
 [ext_resource type="Texture2D" uid="uid://dicbj2n5lsm5s" path="res://assets/AllSky_Night_MoonBurst Equirect.png" id="2_sof25"]
 [ext_resource type="Material" uid="uid://cufp2sitxk1u5" path="res://Matirials/wall.tres" id="3_dclom"]
 [ext_resource type="Material" uid="uid://ogl2dya7fgsv" path="res://Matirials/wood.tres" id="4_k4bsp"]
+[ext_resource type="PackedScene" uid="uid://kpfksqw2pude" path="res://enemy.tscn" id="5_fo62o"]
 [ext_resource type="PackedScene" uid="uid://bdgvi5n5xpfss" path="res://deer_manager.tscn" id="8_yiiqd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fqhax"]
@@ -46,6 +47,12 @@ albedo_texture = SubResource("ViewportTexture_oce1x")
 
 [node name="Player" parent="." instance=ExtResource("1_f6xjw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05067, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("5_fo62o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_fo62o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.36197, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, -0.200486, 0.758775, 0.619731, -0.458045, 0.486581, -0.743931, 0, 17, -3)

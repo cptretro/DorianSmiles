@@ -5,6 +5,7 @@ var graze_time : float
 
 func graze():
 	graze_time = randf_range(3, 8)
+	print("grazing for :", graze_time)
 	
 func enter():
 	graze()
