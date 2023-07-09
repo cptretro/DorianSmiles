@@ -70,7 +70,7 @@ func Physics_Update(_delta: float):
 			#print("Error: Player not found")
 			pass
 
-		if direction.length() < 10:
+		if direction.length() < 30:
 			#print("{DeerWander} to {DeerIdle}")
 			Transitioned.emit(self, "DeerAttacking")
 		

@@ -1442,7 +1442,469 @@ transform = Transform3D(0.981433, -0.189593, -0.0290436, 0.186373, 0.978424, -0.
 visible = false
 
 [node name="DeerEnemy" parent="." instance=ExtResource("27_y4vdk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225467, 17.9112, 43.2864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1358, 17.9112, 15.8609)
+
+[node name="DeerEnemy2" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.7497, 17.9112, 15.8609)
+
+[node name="StateMachine" parent="DeerEnemy2" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy2/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy2/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy2/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy3" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.5047, 17.9112, 42.3525)
+
+[node name="StateMachine" parent="DeerEnemy3" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy3/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy3/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy3/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy4" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.871, 18.2925, 79.4257)
+
+[node name="StateMachine" parent="DeerEnemy4" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy4/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy4/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy4/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy5" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28095, 17.9112, 79.4257)
+
+[node name="StateMachine" parent="DeerEnemy5" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy5/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy5/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy5/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy6" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2478, 17.9112, 48.2146)
+
+[node name="StateMachine" parent="DeerEnemy6" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy6/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy6/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy6/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy9" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.0987, 17.9112, 38.0659)
+
+[node name="StateMachine" parent="DeerEnemy9" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy9/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy9/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy9/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy10" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6266, 19.0137, 14.7615)
+
+[node name="CollisionShape3D" parent="DeerEnemy10" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy10" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy10/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy10/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy10/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy11" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6764, 20.186, -2.34728)
+
+[node name="CollisionShape3D" parent="DeerEnemy11" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy11" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy11/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy11/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy11/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy12" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9791, 20.186, -5.77341)
+
+[node name="CollisionShape3D" parent="DeerEnemy12" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy12" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy12/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy12/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy12/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy13" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9791, 25.5409, -30.2975)
+
+[node name="CollisionShape3D" parent="DeerEnemy13" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy13" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy13/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy13/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy13/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy14" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6785, 25.5409, -30.2975)
+
+[node name="CollisionShape3D" parent="DeerEnemy14" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy14" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy14/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy14/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy14/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy15" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7321, 25.5409, -30.2975)
+
+[node name="CollisionShape3D" parent="DeerEnemy15" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy15" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy15/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy15/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy15/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy16" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7321, 19.6842, -3.41882)
+
+[node name="CollisionShape3D" parent="DeerEnemy16" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy16" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy16/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy16/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy16/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy17" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.904, 19.6842, 30.2691)
+
+[node name="CollisionShape3D" parent="DeerEnemy17" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy17" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy17/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy17/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy17/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy18" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.904, 19.6842, 61.1982)
+
+[node name="CollisionShape3D" parent="DeerEnemy18" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy18" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy18/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy18/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy18/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy19" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.1202, 20.573, 61.1982)
+
+[node name="CollisionShape3D" parent="DeerEnemy19" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy19" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy19/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy19/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy19/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy20" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.1202, 22.801, 39.8416)
+
+[node name="CollisionShape3D" parent="DeerEnemy20" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy20" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy20/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy20/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy20/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy21" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9396, 22.801, 16.3387)
+
+[node name="CollisionShape3D" parent="DeerEnemy21" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy21" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy21/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy21/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy21/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy22" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.2003, 22.801, 67.7261)
+
+[node name="CollisionShape3D" parent="DeerEnemy22" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy22" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy22/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy22/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy22/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy23" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.716, 22.801, 67.7261)
+
+[node name="CollisionShape3D" parent="DeerEnemy23" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy23" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy23/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy23/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy23/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy24" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.716, 22.801, 13.5609)
+
+[node name="CollisionShape3D" parent="DeerEnemy24" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy24" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy24/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy24/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy24/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy25" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.1839, 22.801, -7.28522)
+
+[node name="CollisionShape3D" parent="DeerEnemy25" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy25" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy25/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy25/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy25/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy26" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.1839, 22.801, 47.7148)
+
+[node name="CollisionShape3D" parent="DeerEnemy26" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy26" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy26/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy26/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy26/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerEnemy27" parent="." instance=ExtResource("27_y4vdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.1839, 26.3777, 50.7842)
+
+[node name="CollisionShape3D" parent="DeerEnemy27" index="2"]
+transform = Transform3D(0.391906, 0, 0, 0, -0.275708, -1.18029, 0, 1.1257, -0.289078, 0, -0.109558, -0.352535)
+
+[node name="StateMachine" parent="DeerEnemy27" index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("../../DeerEnemy/StateMachine/DeerIdle")
+
+[node name="DeerIdle" parent="DeerEnemy27/StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerWander" parent="DeerEnemy27/StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
+
+[node name="DeerAttacking" parent="DeerEnemy27/StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../../../DeerEnemy")
 
 [editable path="DeerEnemy"]
 [editable path="DeerEnemy/superdeerhorse"]
+[editable path="DeerEnemy2"]
+[editable path="DeerEnemy2/superdeerhorse"]
+[editable path="DeerEnemy3"]
+[editable path="DeerEnemy3/superdeerhorse"]
+[editable path="DeerEnemy4"]
+[editable path="DeerEnemy4/superdeerhorse"]
+[editable path="DeerEnemy5"]
+[editable path="DeerEnemy5/superdeerhorse"]
+[editable path="DeerEnemy6"]
+[editable path="DeerEnemy6/superdeerhorse"]
+[editable path="DeerEnemy9"]
+[editable path="DeerEnemy9/superdeerhorse"]
+[editable path="DeerEnemy10"]
+[editable path="DeerEnemy10/superdeerhorse"]
+[editable path="DeerEnemy11"]
+[editable path="DeerEnemy11/superdeerhorse"]
+[editable path="DeerEnemy12"]
+[editable path="DeerEnemy12/superdeerhorse"]
+[editable path="DeerEnemy13"]
+[editable path="DeerEnemy13/superdeerhorse"]
+[editable path="DeerEnemy14"]
+[editable path="DeerEnemy14/superdeerhorse"]
+[editable path="DeerEnemy15"]
+[editable path="DeerEnemy15/superdeerhorse"]
+[editable path="DeerEnemy16"]
+[editable path="DeerEnemy16/superdeerhorse"]
+[editable path="DeerEnemy17"]
+[editable path="DeerEnemy17/superdeerhorse"]
+[editable path="DeerEnemy18"]
+[editable path="DeerEnemy18/superdeerhorse"]
+[editable path="DeerEnemy19"]
+[editable path="DeerEnemy19/superdeerhorse"]
+[editable path="DeerEnemy20"]
+[editable path="DeerEnemy20/superdeerhorse"]
+[editable path="DeerEnemy21"]
+[editable path="DeerEnemy21/superdeerhorse"]
+[editable path="DeerEnemy22"]
+[editable path="DeerEnemy22/superdeerhorse"]
+[editable path="DeerEnemy23"]
+[editable path="DeerEnemy23/superdeerhorse"]
+[editable path="DeerEnemy24"]
+[editable path="DeerEnemy24/superdeerhorse"]
+[editable path="DeerEnemy25"]
+[editable path="DeerEnemy25/superdeerhorse"]
+[editable path="DeerEnemy26"]
+[editable path="DeerEnemy26/superdeerhorse"]
+[editable path="DeerEnemy27"]
+[editable path="DeerEnemy27/superdeerhorse"]
