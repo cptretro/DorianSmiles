@@ -58,6 +58,7 @@ func _hit_finished():
 		player.damage()
 		
 func take_damage(damage: float):
+	print('take damage')
 	health = clamp(health - damage, 0, 10)
 	
 	if health == 0:

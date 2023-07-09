@@ -20,10 +20,10 @@ func _ready():
 func _process(_delta):
 	# throw new NotImplementedExceptions()
 	# test emit
-	if Input.is_action_just_pressed("ui_accept"): ## enter key
-		deer_killed.emit(Vector3.ZERO)
-	if Input.is_action_just_pressed("start_open_season"): ## enter key
-		open_season.emit()
+	#if Input.is_action_just_pressed("ui_accept"): ## enter key
+	#	deer_killed.emit(Vector3.ZERO)
+	#if Input.is_action_just_pressed("start_open_season"): ## enter key
+	#	open_season.emit()
 	
 
 # 

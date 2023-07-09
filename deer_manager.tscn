@@ -5,4 +5,6 @@
 
 [node name="DeerManager" type="Node"]
 script = ExtResource("1_0n7ql")
+is_open_season = null
+open_season_kill_requirement = null
 deer_scene = ExtResource("2_2a40g")
