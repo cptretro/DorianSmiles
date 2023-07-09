@@ -8,14 +8,20 @@ class_name DeerAi
 @export var state_manager : StateMachine
 @export var player: CharacterBody3D
 
+@export var open_season : bool
+
 func _ready():
+	if !state_manager:
+		state_manager = $StateMachine
+		
+	# Get Player reference
+	if !player:
+		player = get_tree().root.get_node("World").get_node("Player")
 	# Not Implemented() :: Get signal from deer manager to look for nearby deer deaths
-	var test = get_tree().root.get_node("World")
-	print(test)
+
 	get_tree().root.get_node("World").get_node("DeerManager").deer_killed.connect(self.deer_is_killed)
 	
-	# Get Player reference
-	player = get_tree().root.get_node("World").get_node("Player")
+
 	
 func _physics_process(_delta):
 	move_and_slide()
