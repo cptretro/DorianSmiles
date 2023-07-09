@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name DeerAi
 
-signal deer_killed
+#signal deer_killed(position)
 
 @export var health := 10
 
@@ -9,6 +9,8 @@ signal deer_killed
 @export var player: CharacterBody3D
 
 @export var open_season : bool
+
+var deadcount = 0
 
 func _ready():
 	if !state_manager:
@@ -19,15 +21,18 @@ func _ready():
 		player = get_tree().root.get_node("World").get_node("Player")
 	# Not Implemented() :: Get signal from deer manager to look for nearby deer deaths
 
-	#get_tree().root.get_node("World").get_node("DeerManager").deer_killed.connect(self.deer_is_killed)
+	get_tree().root.get_node("World").get_node("DeerManager").deer_killed.connect(self.deer_is_killed)
 	
 
 	
 func _physics_process(_delta):
 	move_and_slide()
 	
-	if velocity.length() > 0:
+	if velocity.length() > 0 and deadcount < 1:
 		$superdeerhorse/AnimationPlayer.play("horse_rig_Run")
+		rotation.y = lerp_angle(rotation.y, atan2(- velocity.x, - velocity.z), 1)
+	elif velocity.length() <= 0 and deadcount < 1:
+		$superdeerhorse/AnimationPlayer.play("horse_rig_eat")
 
 # Damage Script, clamps value to 0
 func take_damage(damage: float):
@@ -47,6 +52,7 @@ func deer_is_killed(pos: Vector3):
 	
 func die():
 	# throw new NotImplementedException()
-	deer_killed.emit()
-	#$superdeerhorse/AnimationPlayer.play("horse_rig_Run")
-	pass
+	print('dead')
+	deadcount += 1
+	$superdeerhorse/AnimationPlayer.play("horse_rigdeath")
+

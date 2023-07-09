@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bikkcglouvm7m"]
+[gd_scene load_steps=25 format=3 uid="uid://bikkcglouvm7m"]
 
 [ext_resource type="Script" path="res://Scripts/DeerAi.gd" id="1_hum4y"]
 [ext_resource type="PackedScene" path="res://Models/superdeerhorse.glb" id="2_4phic"]
@@ -2031,6 +2031,50 @@ _data = {
 "horse_riglook": ExtResource("9_j2stp")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mans0"]
+animation = &"horse_rig_Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4yyej"]
+animation = &"horse_rig_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o584v"]
+animation = &"horse_rig_death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tbfqx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_su2r3"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k3sg7"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_irik0"]
+advance_mode = 2
+advance_condition = &"Death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w6xpt"]
+advance_mode = 2
+advance_condition = &"Death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lamoc"]
+advance_mode = 2
+advance_condition = &"Death"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p4dtn"]
+states/horse_rig_Run/node = SubResource("AnimationNodeAnimation_mans0")
+states/horse_rig_Run/position = Vector2(348, 100)
+states/horse_rig_attack/node = SubResource("AnimationNodeAnimation_4yyej")
+states/horse_rig_attack/position = Vector2(566, 100)
+states/horse_rig_death/node = SubResource("AnimationNodeAnimation_o584v")
+states/horse_rig_death/position = Vector2(366, 212)
+transitions = ["Start", "horse_rig_Run", SubResource("AnimationNodeStateMachineTransition_tbfqx"), "horse_rig_Run", "horse_rig_attack", SubResource("AnimationNodeStateMachineTransition_su2r3"), "horse_rig_attack", "horse_rig_Run", SubResource("AnimationNodeStateMachineTransition_k3sg7"), "Start", "horse_rig_death", SubResource("AnimationNodeStateMachineTransition_irik0"), "horse_rig_Run", "horse_rig_death", SubResource("AnimationNodeStateMachineTransition_w6xpt"), "horse_rig_attack", "horse_rig_death", SubResource("AnimationNodeStateMachineTransition_lamoc")]
+graph_offset = Vector2(-15, 62)
+
 [node name="DeerEnemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_hum4y")
 
@@ -2353,7 +2397,6 @@ script = ExtResource("4_ms67j")
 [node name="DeerAttacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_xu2w6")
 enemy = NodePath("../..")
-move_speed = 3.0
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 
@@ -2361,5 +2404,12 @@ move_speed = 3.0
 libraries = {
 "": SubResource("AnimationLibrary_gtnkp")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_p4dtn")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/conditions/Death = false
+parameters/conditions/attack = false
 
 [editable path="superdeerhorse"]

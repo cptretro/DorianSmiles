@@ -30,6 +30,8 @@ var time_elapsed := 0.0
 var counter = 1
 var is_stopped := false
 
+signal player_hit
+
 
 @onready var hit_damage = $damageUI
 @onready var head = $Head
@@ -156,6 +158,10 @@ func _physics_process(delta):
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 
 	move_and_slide()
+	
+func hit(dir):
+	#emit_signal("player_hit")
+	velocity += dir * 5
 
 func _play_footstep_audio():
 	footstep_audio.pitch_scale = randf_range(.8, 1.2)
@@ -190,3 +196,5 @@ func damage():
 		#$RespawnMenu.visible = true
 	set_health_label()
 	set_health_bar()
+	
+
