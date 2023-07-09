@@ -6,6 +6,7 @@ class_name DeerAttacking
 var player : CharacterBody3D
 
 func attack():
+	# attack player here
 	pass
 		
 

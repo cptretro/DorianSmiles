@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://8vq2h0blone5" path="res://assets/campfire.tscn" id="18_1nrdc"]
 [ext_resource type="PackedScene" uid="uid://cytlve453jlsd" path="res://displacement_height_map.tscn" id="19_nmqvs"]
 [ext_resource type="PackedScene" uid="uid://dguym8qj1h842" path="res://wood spike (functionality).tscn" id="20_nd1ry"]
-[ext_resource type="AudioStream" uid="uid://dlxqcum3pml0h" path="res://Audio/Deer_Introduction.mp3" id="21_8gk2n"]
+[ext_resource type="AudioStream" path="res://Audio/Deer_Introduction.mp3" id="21_8gk2n"]
 
 [sub_resource type="Theme" id="Theme_80484"]
 

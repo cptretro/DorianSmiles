@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdgvi5n5xpfss"]
 
 [ext_resource type="Script" path="res://deer_manager.gd" id="1_0n7ql"]
-[ext_resource type="PackedScene" uid="uid://i1n1ba021txm" path="res://DeerEnemy.tscn" id="2_2a40g"]
+[ext_resource type="PackedScene" uid="uid://bikkcglouvm7m" path="res://DeerEnemy.tscn" id="2_2a40g"]
 
 [node name="DeerManager" type="Node"]
 script = ExtResource("1_0n7ql")
