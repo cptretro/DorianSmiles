@@ -19,14 +19,10 @@ func _ready():
 func randomize_wander():
 	move_direction = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
 	wander_time = randf_range(1, 4)
+	enemy.look_at(move_direction + enemy.position)
 	
 func return_to_spawn():
-	var x = (starting_pos.x - enemy.position.x)
-	var y = enemy.position.y
-	var z = (starting_pos.z - enemy.position.z)
-	
-	#move_direction = (starting_pos - enemy.position).normalized()
-	move_direction = Vector3(x, y, z).normalized()
+	move_direction = (starting_pos - enemy.position).normalized()
 	wander_time = 4
 	
 func enter():
@@ -49,18 +45,20 @@ func switch_to_graze():
 	Transitioned.emit(self, "DeerGrazing")
 
 func Physics_Update(_delta: float):
-	enemy.velocity.y -= 9.7 * _delta
 	if wander_time <= 0:
-		# roll dice on if deer wanders or grazes
-		var roll : float = randf_range(1, 100)
-		if fmod(roll, 2) == 0:
-			##print("stick to wandering...")
-			randomize_wander()
-		else:
-			switch_to_graze()
-			
+		#if starting_pos.distance_to(enemy.position) > wander_range:
+		#	return_to_spawn()
+		#else:
+			# roll dice on if deer wanders or grazes
+			#var roll : float = randf_range(1, 100)
+			#if fmod(roll, 2) == 0:
+			#	##print("stick to wandering...")
+		randomize_wander()
+			#else:
+			#	switch_to_graze()
+				
 	else:
-		enemy.velocity = Vector3(move_direction.x, -9.7, move_direction.z) * move_speed
+		enemy.velocity = move_direction * move_speed
 	
 		#player = get_tree().root.get_node("World").get_node("Player")
 		
@@ -72,7 +70,7 @@ func Physics_Update(_delta: float):
 			#print("Error: Player not found")
 			pass
 
-		if direction.length() < 2:
+		if direction.length() < 10:
 			#print("{DeerWander} to {DeerIdle}")
-			Transitioned.emit(self, "DeerIdle")
+			Transitioned.emit(self, "DeerAttacking")
 		
